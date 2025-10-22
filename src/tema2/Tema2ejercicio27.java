@@ -1,3 +1,5 @@
+package tema2;
+
 public class Tema2ejercicio27 {
     public static void main(String[] args) {
         int num = 2;
