@@ -159,18 +159,6 @@ public class Tema2ejercicioCombate {
         int vida_personaje_inicial = vida_personaje;
         int vida_personaje2_inicial = vida_personaje2;
 
-        // Mostrar la vida inicial de cada jugador antes de la batalla
-        //Mostrar vida jugador 1
-        System.out.print("Jugador 1 [");
-        for (int i = 0; i < vida_personaje / 10; i++) System.out.print("❤️");
-        if (vida_personaje % 10 > 0) System.out.print("💔");
-        System.out.println("] " + vida_personaje + "\n");
-
-        //Mostrar vida jugador 2
-        System.out.print("Jugador 2 [");
-        for (int i = 0; i < vida_personaje2 / 10; i++) System.out.print("❤️");
-        if (vida_personaje2 % 10 > 0) System.out.print("💔");
-        System.out.println("] " + vida_personaje2 + "\n");
 
         //Si son igual de rapidos hacer que uno sea mas rapido de forma aleatoria
         if (velocidad_personaje == velocidad_personaje2) {
@@ -195,6 +183,18 @@ public class Tema2ejercicioCombate {
         while (vida_personaje > 0 && vida_personaje2 > 0) {
             System.out.println("-".repeat(50));
             System.out.println("**Ronda " + ronda + "**" + " \n");
+            // mostrar la vida actual
+            {
+                System.out.print("Jugador 1 [");
+                for (int i = 0; i < vida_personaje / 10; i++) System.out.print("❤️");
+                if (vida_personaje % 10 > 0) System.out.print("💔");
+                System.out.println("] " + vida_personaje);
+
+                System.out.print("Jugador 2 [");
+                for (int i = 0; i < vida_personaje2 / 10; i++) System.out.print("❤️");
+                if (vida_personaje2 % 10 > 0) System.out.print("💔");
+                System.out.println("] " + vida_personaje2);
+            }
 
             //Pide acción a jugador 1
             System.out.println("Jugador 1 que quieres hacer:");
@@ -210,245 +210,171 @@ public class Tema2ejercicioCombate {
             System.out.println("3. Curarse");
             opcion2 = in.nextInt();
 
-
-            // Curación personaje 1
-            if (opcion1 == 3) {
-                if (vida_personaje == vida_personaje_inicial) {
-                    System.out.println("Jugador 1 ya está al máximo de vida ❌");
-                    System.out.println("Elige otra opción");
-                    System.out.println("1. Atacar");
-                    System.out.println("2. Defenderse");
-                    System.out.println("3. Curarse");
-                    opcion1 = in.nextInt();
-                    while (opcion1 == 3) {
-                        System.out.println("No puedes curarte, estas al maximo, elige otra opción");
-                        System.out.println("1. Atacar");
-                        System.out.println("2. Defenderse");
-                        opcion1 = in.nextInt();
-                    }
+            //defensa jugador 1
+            if (opcion1 == 2) {
+                if (cooldownDefensa1 == 1) {
+                    System.out.println("Jugador 1 no puede defenderse este turno, debe atacar.");
+                    opcion1 = 1;
+                    cooldownDefensa1 = 0;
                 } else {
-                    Random curacion1 = new Random();
-                    int curacion = 10 + curacion1.nextInt(50);
-                    vida_personaje += curacion;
-                    if (vida_personaje > vida_personaje_inicial) vida_personaje = vida_personaje_inicial;
-                    System.out.println("Jugador 1 se ha curado 🩹 ahora tiene " + vida_personaje + " de vida restante");
+                    System.out.println("Jugador 1 se defiende este turno.");
+                    cooldownDefensa1 = 1;
                 }
-                if (opcion2 == 1) {
-                    //ataque del jugador 2
-                    Random random = new Random();
-                    ataque2 = ataque_personaje2 - defensa_personaje;
-                    if (ataque2 <= 0) ataque2 = 10;
-                    int random1 = 1 + random.nextInt(ataque2);
-                    vida_personaje = vida_personaje - random1;
-                    if (vida_personaje < 0) vida_personaje = 0;
+            }
 
-                    // Barra de vida simple Jugador 1
-                    System.out.println("El jugador 2 a inlingido un total de " + random1 + " daño");
-                    System.out.print("Jugador 1 [");
-                    for (int i = 0; i < vida_personaje / 10; i++) System.out.print("❤️");
-                    // medio corazón si queda entre 1 y 9
-                    if (vida_personaje % 10 > 0) System.out.print("💔");
-                    System.out.println("] " + vida_personaje);
-                }
-                if (opcion2 == 2) {
-                    System.out.println("Jugador 2 se ha defendido y bloquea el ataque! 🛡️🛑");
+            //defensa jugador 2
+            if (opcion2 == 2) {
+                if (cooldownDefensa2 == 1) {
+                    System.out.println("Jugador 2 no puede defenderse este turno, debe atacar.");
+                    opcion2 = 1;
+                    cooldownDefensa2 = 0;
+                } else {
+                    System.out.println("Jugador 2 se defiende este turno.");
                     cooldownDefensa2 = 1;
                 }
             }
 
-        }
+            if (opcion1 != 2) cooldownDefensa1 = 0;
+            if (opcion2 != 2) cooldownDefensa2 = 0;
 
-        // Curación personaje 2
-        if (opcion2 == 3) {
-            if (vida_personaje2 == vida_personaje2_inicial) {
-                System.out.println("Jugador 2 ya está al máximo de vida ❌");
-                System.out.println("Elige otra opción");
-                System.out.println("1. Atacar");
-                System.out.println("2. Defenderse");
-                System.out.println("3. Curarse");
-                opcion2 = in.nextInt();
-                while (opcion2 == 3) {
-                    System.out.println("No puedes curarte, estas al maximo, elige otra opción");
-                    System.out.println("1. Atacar");
-                    System.out.println("2. Defenderse");
-                    opcion2 = in.nextInt();
-                }
-            } else {
-                Random curacion1 = new Random();
-                int curacion = 10 + curacion1.nextInt(50);
-                vida_personaje2 += curacion;
-                if (vida_personaje2 > vida_personaje2_inicial) vida_personaje2 = vida_personaje2_inicial;
-                System.out.println("Jugador 2 se ha curado 🩹 ahora tiene " + vida_personaje2);
-
-                //ataque del jugador 1
-                ataque1 = ataque_personaje - defensa_personaje2;
-                if (ataque1 <= 0) ataque1 = 10;
-                Random random1 = new Random();
-                int random2 = 1 + random1.nextInt(ataque1);
-                vida_personaje2 = vida_personaje2 - random2;
-                if (vida_personaje2 < 0) vida_personaje2 = 0;
-
-                // Barra de vida simple Jugador 2
-
-                System.out.println("El jugador 1 a inlingido un total de " + random2 + " daño");
-                System.out.print("Jugador 2 [");
-                for (int i = 0; i < vida_personaje2 / 10; i++) System.out.print("❤️");
-                // medio corazón si queda entre 1 y 9
-                if (vida_personaje2 % 10 > 0) System.out.print("💔");
-                System.out.println("] " + vida_personaje2);
-                if (vida_personaje2 == 0) {
-                    System.out.println("***El Jugador 2 ya no  tiene vida, el ganador es el Jugador 1***");
-                }
-            }
-        }
-        // Si el jugador 1 elige la opción de defiende
-        if (opcion1 == 2 || opcion2 == 2) {
-            if (opcion1 == 2 && cooldownDefensa1 == 0) {
-                System.out.println("Jugador 1 se ha defendido y bloquea el ataque! 🛡️🛑");
-                cooldownDefensa1 = 1;
-            } else if (opcion1 == 2 && cooldownDefensa1 == 1) {
-                System.out.println("Jugador 1 no puede defenderse dos turnos seguidos ⚠️");
-                System.out.println("Jugdor 1 pierde el turno ⚠️");
-                cooldownDefensa1 = 0;
-
-                //ataque del jugador 2
+            //los 2 jugadores se curan
+            if (opcion1 == 3 && opcion2 == 3) {
                 Random random = new Random();
+                int cura1 = 10 + random.nextInt(21);
+                int cura2 = 10 + random.nextInt(21);
+                vida_personaje = vida_personaje + cura1;
+                vida_personaje2 = vida_personaje2 + cura2;
+                //comprobamos que no tenga mas vida de la introducida del jugador 1
+                if (vida_personaje > vida_personaje_inicial) {
+                    vida_personaje = vida_personaje_inicial;
+                }
+                //comprobamos que no tenga mas vida de la introducida del jugador 2
+                if (vida_personaje2 > vida_personaje2_inicial) {
+                    vida_personaje2 = vida_personaje2_inicial;
+                }
+
+                System.out.println("Jugador 1 se cura " + cura1 + " puntos.");
+                System.out.println("Jugador 2 se cura " + cura2 + " puntos.");
+            }
+
+            // Jugador 1 se cura y Jugador 2 se defiende
+            if (opcion1 == 3 && opcion2 == 2) {
+                Random random = new Random();
+                int cura = 10 + random.nextInt(21);
+                vida_personaje = vida_personaje + cura;
+                if (vida_personaje > vida_personaje_inicial) {
+                    vida_personaje = vida_personaje_inicial;
+                }
+                System.out.println("Jugador 1 se cura " + cura + " puntos, mientras el Jugador 2 se defiende sin recibir daño.");
+            }
+
+            // Jugador 1 se defiende y Jugador 2 se cura
+            if (opcion1 == 2 && opcion2 == 3) {
+                Random random = new Random();
+                int cura = 10 + random.nextInt(21);
+                vida_personaje2 = vida_personaje2 + cura;
+                if (vida_personaje2 > vida_personaje2_inicial) {
+                    vida_personaje2 = vida_personaje2_inicial;
+                }
+                System.out.println("Jugador 2 se cura " + cura + " puntos, mientras el Jugador 1 se defiende sin recibir daño.");
+            }
+
+            // Jugador 1 se cura y Jugador 2 ataca
+            if (opcion1 == 3 && opcion2 == 1) {
+                Random random = new Random();
+                int cura = 10 + random.nextInt(21);
+                vida_personaje += cura;
+                if (vida_personaje > vida_personaje_inicial) {
+                    vida_personaje = vida_personaje_inicial;
+                }
+                System.out.println("Jugador 1 se cura " + cura + " puntos.");
+
+                // Ahora recibe el ataque del Jugador 2
                 ataque2 = ataque_personaje2 - defensa_personaje;
                 if (ataque2 <= 0) ataque2 = 10;
-                int random1 = 1 + random.nextInt(ataque2);
-                vida_personaje = vida_personaje - random1;
+                Random random_cura_ataque = new Random();
+                int random2 = 1 + random_cura_ataque.nextInt(ataque2);
+                vida_personaje = vida_personaje - random2;
                 if (vida_personaje < 0) vida_personaje = 0;
-
-                // Barra de vida simple Jugador 1
-                System.out.println("El jugador 2 a inlingido un total de " + random1 + " daño");
-                System.out.print("Jugador 1 [");
-                for (int i = 0; i < vida_personaje / 10; i++) System.out.print("❤️");
-                // medio corazón si queda entre 1 y 9
-                if (vida_personaje % 10 > 0) System.out.print("💔");
-                System.out.println("] " + vida_personaje);
-
+                System.out.println("El jugador 2 ha infligido un total de " + random2 + " daño");
                 if (vida_personaje == 0) {
                     System.out.println("***El Jugador 1 ya no tiene vida, el ganador es el Jugador 2***");
                 }
-            } else {
-                cooldownDefensa1 = 0;
             }
-
-            // Si el jugador 2 elige la opción de defiende
-            if (opcion2 == 2 && cooldownDefensa2 == 0) {
-                System.out.println("Jugador 2 se ha defendido y bloquea el ataque! 🛡️🛑");
-                cooldownDefensa2 = 1;
-            } else if (opcion2 == 2 && cooldownDefensa2 == 1) {
-                System.out.println("Jugador 2 no puede defenderse dos turnos seguidos ⚠️");
-                System.out.println("Jugdor 2 pierde el turno ⚠️");
-                cooldownDefensa2 = 0;
-
-                //ataque del jugador 1
-                ataque1 = ataque_personaje - defensa_personaje2;
-                if (ataque1 <= 0) ataque1 = 10;
-                Random random1 = new Random();
-                int random2 = 1 + random1.nextInt(ataque1);
-                vida_personaje2 = vida_personaje2 - random2;
-                if (vida_personaje2 < 0) vida_personaje2 = 0;
-
-                // Barra de vida simple Jugador 2
-
-                System.out.println("El jugador 1 a inlingido un total de " + random2 + " daño");
-                System.out.print("Jugador 2 [");
-                for (int i = 0; i < vida_personaje2 / 10; i++) System.out.print("❤️");
-                // medio corazón si queda entre 1 y 9
-                if (vida_personaje2 % 10 > 0) System.out.print("💔");
-                System.out.println("] " + vida_personaje2);
-                if (vida_personaje2 == 0) {
-                    System.out.println("***El Jugador 2 ya no  tiene vida, el ganador es el Jugador 1***");
+            // Jugador 1 ataca y Jugador 2 se cura
+            if (opcion1 == 1 && opcion2 == 3) {
+                Random random_cura_ataque2 = new Random();
+                int cura = 10 + random_cura_ataque2.nextInt(21);
+                vida_personaje2 += cura;
+                if (vida_personaje2 > vida_personaje2_inicial) {
+                    vida_personaje2 = vida_personaje2_inicial;
                 }
-            } else {
-                cooldownDefensa2 = 0;
-            }
-        } else if (opcion1 == 1 && opcion2 == 1) {
-            //ataque jugador 1 (primero)
-            if (velocidad_personaje > velocidad_personaje2) {
+                System.out.println("Jugador 2 se cura " + cura + " puntos.");
+
+                // Ahora recibe el ataque del Jugador 1
                 ataque1 = ataque_personaje - defensa_personaje2;
                 if (ataque1 <= 0) ataque1 = 10;
                 Random random1 = new Random();
                 int random = 1 + random1.nextInt(ataque1);
                 vida_personaje2 = vida_personaje2 - random;
                 if (vida_personaje2 < 0) vida_personaje2 = 0;
-
-                // Barra de vida simple Jugador 2
-
-                System.out.println("El jugador 1 a inlingido un total de " + random + " daño");
-                System.out.print("Jugador 2 [");
-                for (int i = 0; i < vida_personaje2 / 10; i++) System.out.print("❤️");
-                // medio corazón si queda entre 1 y 9
-                if (vida_personaje2 % 10 > 0) System.out.print("💔");
-                System.out.println("] " + vida_personaje2);
+                System.out.println("El jugador 1 ha infligido un total de " + random + " daño");
                 if (vida_personaje2 == 0) {
                     System.out.println("***El jugador 2 ya no tiene vida, el ganador es el Jugador 1***");
-                } else {
-                    //ataque jugador 2 (segudno)
-                    ataque2 = ataque_personaje2 - defensa_personaje;
-                    if (ataque2 <= 0) ataque2 = 10;
-                    int random2 = 1 + random1.nextInt(ataque2);
-                    vida_personaje = vida_personaje - random2;
-                    if (vida_personaje < 0) vida_personaje = 0;
-
-                    // Barra de vida simple Jugador 1
-
-                    System.out.println("El jugador 2 a inlingido un total de " + random2 + " daño");
-                    System.out.print("Jugador 1 [");
-                    for (int i = 0; i < vida_personaje / 10; i++) System.out.print("❤️");
-                    // medio corazón si queda entre 1 y 9
-                    if (vida_personaje % 10 > 0) System.out.print("💔");
-                    System.out.println("] " + vida_personaje);
-                    if (vida_personaje == 0) {
-                        System.out.println("***El Jugador 1 ya no tiene vida, el ganador es el Jugador 2***");
-                    }
                 }
-            } else {
-                // ataque jugador 2 (primero)
-                ataque2 = ataque_personaje2 - defensa_personaje;
-                if (ataque2 <= 0) ataque2 = 10;
-                Random random2 = new Random();
-                int random = 1 + random2.nextInt(ataque2);
-                vida_personaje = vida_personaje - random;
-                if (vida_personaje < 0) vida_personaje = 0;
+            }
 
-                // Barra de vida simple Jugador 1
-
-                System.out.println("El jugador 1 a inlingido un total de " + random + " daño");
-                System.out.print("Jugador 1 [");
-                for (int i = 0; i < vida_personaje / 10; i++) System.out.print("❤️");
-                // medio corazón si queda entre 1 y 9
-                if (vida_personaje % 10 > 0) System.out.print("💔");
-                System.out.println("] " + vida_personaje);
-                if (vida_personaje == 0) {
-                    System.out.println("***El Jugador 1 ya no tiene vida, el ganador es el Jugador 2***");
-                } else {
-                    // ataquejugador 1 (segundo)
+            //ataque de los 2 jugadores
+            if (opcion1 == 1 && opcion2 == 1) {
+                //ataque jugador 1 (primero)
+                if (velocidad_personaje > velocidad_personaje2) {
                     ataque1 = ataque_personaje - defensa_personaje2;
                     if (ataque1 <= 0) ataque1 = 10;
-                    int random1 = 1 + random2.nextInt(ataque1);
+                    Random random1 = new Random();
+                    int random = 1 + random1.nextInt(ataque1);
                     vida_personaje2 = vida_personaje2 - random;
                     if (vida_personaje2 < 0) vida_personaje2 = 0;
-
-                    // Barra de vida simple Jugador 2
-
-                    System.out.println("El jugador 1 a inlingido un total de " + random1 + " daño");
-                    System.out.print("Jugador 2 [");
-                    for (int i = 0; i < vida_personaje2 / 10; i++) System.out.print("❤️");
-                    // medio corazón si queda entre 1 y 9
-                    if (vida_personaje2 % 10 > 0) System.out.print("💔");
-                    System.out.println("] " + vida_personaje2);
+                    System.out.println("El jugador 1 ha infligido un total de " + random + " daño");
                     if (vida_personaje2 == 0) {
                         System.out.println("***El jugador 2 ya no tiene vida, el ganador es el Jugador 1***");
+                    } else {
+                        //ataque jugador 2 (segudno)
+                        ataque2 = ataque_personaje2 - defensa_personaje;
+                        if (ataque2 <= 0) ataque2 = 10;
+                        int random2 = 1 + random1.nextInt(ataque2);
+                        vida_personaje = vida_personaje - random2;
+                        if (vida_personaje < 0) vida_personaje = 0;
+                        System.out.println("El jugador 2 ha infligido un total de " + random2 + " daño");
+                        if (vida_personaje == 0) {
+                            System.out.println("***El Jugador 1 ya no tiene vida, el ganador es el Jugador 2***");
+                        }
+                    }
+                } else {
+                    // ataque jugador 2 (primero)
+                    ataque2 = ataque_personaje2 - defensa_personaje;
+                    if (ataque2 <= 0) ataque2 = 10;
+                    Random random2 = new Random();
+                    int random = 1 + random2.nextInt(ataque2);
+                    vida_personaje = vida_personaje - random;
+                    if (vida_personaje < 0) vida_personaje = 0;
+                    System.out.println("El jugador 2 ha infligido un total de " + random + " daño");
+                    if (vida_personaje == 0) {
+                        System.out.println("***El Jugador 1 ya no tiene vida, el ganador es el Jugador 2***");
+                    } else {
+                        // ataquejugador 1 (segundo)
+                        ataque1 = ataque_personaje - defensa_personaje2;
+                        if (ataque1 <= 0) ataque1 = 10;
+                        int random1 = 1 + random2.nextInt(ataque1);
+                        vida_personaje2 = vida_personaje2 - random1;
+                        if (vida_personaje2 < 0) vida_personaje2 = 0;
+                        System.out.println("El jugador 1 ha infligido un total de " + random1 + " daño");
+                        if (vida_personaje2 == 0) {
+                            System.out.println("***El jugador 2 ya no tiene vida, el ganador es el Jugador 1***");
+                        }
                     }
                 }
-
             }
+            ronda++;
         }
-        if (cooldownDefensa1 == 1 && opcion1 != 2) cooldownDefensa1 = 0;
-        if (cooldownDefensa2 == 1 && opcion2 != 2) cooldownDefensa2 = 0;
-        ronda++;
     }
 }

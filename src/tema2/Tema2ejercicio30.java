@@ -6,9 +6,9 @@ public class Tema2ejercicio30 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("CALCULADORA");
-        System.out.println("introduce un numer");
+        System.out.println("introduce un numero");
         int num1 = in.nextInt();
-        System.out.println("introduce otro numer");
+        System.out.println("introduce otro numero");
         int num2 = in.nextInt();
         System.out.println("que operacion quieres realizar con estos numero: +, -, *, /, %");
         char operacion = in.next().charAt(0);
