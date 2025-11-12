@@ -34,7 +34,7 @@ public class Tema3Ejercicio10 {
                 break;
         }
     }
-    public static void menu2 (){
+    public static void menuEscrito(){
         System.out.println("Que ejercicio quires realizar?");
         System.out.println("a) Muestra el signo de un número introducido por el usuario.");
         System.out.println("b) Indica si el usuario es mayor de edad o no.");
@@ -48,7 +48,7 @@ public class Tema3Ejercicio10 {
     }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        menu2();
+        menuEscrito();
         char opcion = in.next().charAt(0);
         menu(opcion,args);
     }
