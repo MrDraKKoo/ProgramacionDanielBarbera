@@ -51,7 +51,5 @@ public class Tema3Ejercicio10 {
         menu2();
         char opcion = in.next().charAt(0);
         menu(opcion,args);
-
-
     }
 }
