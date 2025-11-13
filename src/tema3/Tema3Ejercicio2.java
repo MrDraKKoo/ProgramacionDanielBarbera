@@ -13,7 +13,6 @@ public class Tema3Ejercicio2 {
     }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        //llamar a la funcion del ej 1 con el resultado
         System.out.println("Dime un numero entero");
         int num = in.nextInt();
         Tema3Ejercicio1.numberSign(num);
@@ -27,7 +26,6 @@ public class Tema3Ejercicio2 {
         }
 
 
-        //preguntar la edad con la respuesta
         System.out.println("Dime la edad");
         int num2 = in.nextInt();
         boolean resultado = isAdult(num2);

@@ -1,5 +1,6 @@
 package tema3;
 
+import java.sql.SQLDataException;
 import java.util.Scanner;
 
 public class Tema3Ejercicio9 {
@@ -22,6 +23,5 @@ public class Tema3Ejercicio9 {
         System.out.println("el numero de lienas de la priamide");
         int lineas = in.nextInt();
         priamide(caracter, lineas);
-
     }
 }
