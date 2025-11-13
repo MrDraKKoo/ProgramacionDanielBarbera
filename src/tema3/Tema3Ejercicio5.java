@@ -7,7 +7,6 @@ public class Tema3Ejercicio5 {
         int multipicacion = 1;
         int contador = 1;
         int resultado = 0;
-
         if (num > 10 || num < 1) {
             System.out.println("El numero introducido no es valido");
         }else {

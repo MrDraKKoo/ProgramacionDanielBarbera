@@ -17,6 +17,7 @@ public class Tema3Ejercicio1 {
         System.out.println("Dime un numero entero");
         int num = in.nextInt();
         int resultado = numberSign(num);
+
         if (resultado ==1){
             System.out.println("El numero es positivo");
         } else if (resultado == -1) {

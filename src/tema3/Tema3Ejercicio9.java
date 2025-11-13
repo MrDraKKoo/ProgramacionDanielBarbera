@@ -15,7 +15,6 @@ public class Tema3Ejercicio9 {
             System.out.println();
         }
     }
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Dime que caracter quieres");

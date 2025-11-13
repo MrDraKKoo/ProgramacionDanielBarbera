@@ -46,6 +46,7 @@ public class Tema3Ejercicio10 {
         System.out.println("h) Comprobador de fechas.");
         System.out.println("i) Dibujar triángulos.");
     }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         menuEscrito();

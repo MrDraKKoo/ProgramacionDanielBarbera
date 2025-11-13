@@ -28,7 +28,6 @@ public class Tema3Ejercicio8 {
                 }else {
                     System.out.println("la fecha es valida");
                 }
-
             } else {
                 if (dia < 1 || dia > 28) {
                     System.out.println("el dia no es valida");

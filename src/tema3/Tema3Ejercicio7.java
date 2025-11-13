@@ -7,6 +7,7 @@ public class Tema3Ejercicio7 {
         int divisor = 2;
         int NOprimo = 0;
         int primo = 0;
+
         while (divisor < num){
             if (num % divisor ==0){
                 NOprimo++;

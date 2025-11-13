@@ -24,6 +24,7 @@ public class Tema3Ejercicio4 {
         double dinero = in.nextDouble();
         double euroAdollar = euro2dollar(dinero);
         double dollarAeuro = dollar2euro(dinero);
+
         if (respuesta == 1){
             System.out.println("Tus euros son "+euroAdollar+"$");
         }else{

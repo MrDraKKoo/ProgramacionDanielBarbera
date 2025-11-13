@@ -25,7 +25,6 @@ public class Tema3Ejercicio2 {
             System.out.println("Es 0");
         }
 
-
         System.out.println("Dime la edad");
         int num2 = in.nextInt();
         boolean resultado = isAdult(num2);

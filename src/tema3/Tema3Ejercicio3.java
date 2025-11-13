@@ -19,7 +19,6 @@ public class Tema3Ejercicio3 {
         double area = 3.14 * (r *r);
         return area;
     }
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Introduce el valor del radio del circulo");
