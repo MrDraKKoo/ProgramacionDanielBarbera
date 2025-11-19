@@ -19,15 +19,18 @@ public class Tema3Ejercicio4 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         showMenu();
+        System.out.println("introduce tu opciíon:");
         int respuesta = in.nextInt();
         System.out.println("Dime la cantidad de dinero");
         double dinero = in.nextDouble();
-        double euroAdollar = euro2dollar(dinero);
-        double dollarAeuro = dollar2euro(dinero);
+        double euroAdollar;
+        double dollarAeuro;
 
         if (respuesta == 1){
+            euroAdollar = euro2dollar(dinero);
             System.out.println("Tus euros son "+euroAdollar+"$");
         }else{
+            dollarAeuro = dollar2euro(dinero);
             System.out.println("Tus dollares son "+dollarAeuro+"€");
         }
     }

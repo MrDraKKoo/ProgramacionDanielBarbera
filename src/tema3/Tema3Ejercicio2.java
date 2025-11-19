@@ -2,6 +2,8 @@ package tema3;
 
 import java.util.Scanner;
 
+import static tema3.Tema3Ejercicio1.numberSign;
+
 public class Tema3Ejercicio2 {
 
     public static boolean isAdult(int num2){
@@ -15,8 +17,8 @@ public class Tema3Ejercicio2 {
         Scanner in = new Scanner(System.in);
         System.out.println("Dime un numero entero");
         int num = in.nextInt();
-        Tema3Ejercicio1.numberSign(num);
-        int resultado2 = Tema3Ejercicio1.numberSign(num);
+        numberSign(num);
+        int resultado2 = numberSign(num);
         if (resultado2 ==1){
             System.out.println("Es positivo");
         } else if (resultado2 == -1) {
@@ -28,7 +30,7 @@ public class Tema3Ejercicio2 {
         System.out.println("Dime la edad");
         int num2 = in.nextInt();
         boolean resultado = isAdult(num2);
-        if (resultado == true){
+        if (resultado){
             System.out.println("Es mayor de edad");
         }else{
             System.out.println("Es menor de edad");

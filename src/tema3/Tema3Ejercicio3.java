@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Tema3Ejercicio3 {
 
     public static boolean validRadius(double r){
+        //return r>0;
         if (r >0){
             return true;
         }else {

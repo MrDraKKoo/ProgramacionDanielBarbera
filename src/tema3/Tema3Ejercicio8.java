@@ -3,7 +3,7 @@ package tema3;
 import java.util.Scanner;
 
 public class Tema3Ejercicio8 {
-    public static void comprobación (int mes, int ano, int dia){
+    public static void comprobacion (int mes, int ano, int dia){
         if (ano < 1){
             System.out.println("El año es incorrecto");
         }
@@ -46,7 +46,7 @@ public class Tema3Ejercicio8 {
         int mes = in.nextInt();
         System.out.println("Diem el año");
         int ano = in.nextInt();
-        comprobación(mes,ano,dia);
+        comprobacion(mes,ano,dia);
 
     }
 }
