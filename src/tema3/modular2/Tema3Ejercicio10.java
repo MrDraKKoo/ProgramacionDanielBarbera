@@ -9,6 +9,7 @@ public class Tema3Ejercicio10 {
         Scanner in = new Scanner(System.in);
         System.out.println("Elige una opción:");
         System.out.println("1- Calculos areas y perimetros");
+        System.out.println("2- Si un número NO es primo");
         int respuesta = in.nextInt();
         switch (respuesta){
             case 1:
@@ -62,6 +63,19 @@ public class Tema3Ejercicio10 {
                         break;
                 }
             case 2:
+                System.out.println("dime un numero");
+                int num = in.nextInt();
+                boolean noPrimo = noPrimo(num);
+                boolean siPrimo = siPrimo(num);
+
+                if (noPrimo) {
+                    System.out.println("No es primo");
+                }
+                if (siPrimo) {
+                    System.out.println("Si es primo");
+                }
+                break;
+            case 3:
         }
     }
 }

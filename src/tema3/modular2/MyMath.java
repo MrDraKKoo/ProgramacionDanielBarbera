@@ -6,17 +6,19 @@ public class MyMath {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("dime un numero");
-        int num = in.nextInt();
-        boolean noPrimo = noPrimo(num);
-        boolean siPrimo = siPrimo(num);
+       int num = in.nextInt();
+        System.out.println(contarDigitos(num));
+    }
 
-        if (noPrimo) {
-            System.out.println("No es primo");
+    public static int contarDigitos (int num){
+        int contador;
+        for (contador = 0; num >= 10; contador++){
+            num = num / 10;
+            if (num < 10 && num > 1){
+                contador++;
+            }
         }
-        if (siPrimo) {
-            System.out.println("Si es primo");
-        }
+        return contador;
     }
 
     public static boolean noPrimo(int num) {
