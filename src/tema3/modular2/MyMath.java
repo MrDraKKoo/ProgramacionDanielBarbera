@@ -4,20 +4,81 @@ import java.util.Scanner;
 
 public class MyMath {
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-       int num = in.nextInt();
-        System.out.println(contarDigitos(num));
+    public static int sumaDigitos(int num){
+        int suma = 0;
+        while (num > 0) {
+            suma= suma + num % 10;
+            num = num / 10;
+        }
+        return suma;
+    }
+
+    public static void ecuacion2Grado(int a, int b, int c) {
+        int D =b*b-4*a*c;
+        if (D > 0){
+            System.out.println("Tiene 2 soluciones");
+        } else if (D < 0) {
+            System.out.println("No tiene solucion");
+        }else {
+            System.out.println("Tiene 1 solucion");
+        }
+    }
+
+    public static int factorial(int num){
+       int resultado = 1;
+        if (num < 0){
+            System.out.println("Introduce un numero entero");
+        }else{
+            for (int i = 1; i <= num; i++) {
+                resultado = resultado * i;
+            }
+        }
+        return resultado;
+    }
+
+    public static int contadorDigitosImpares(int num){
+        if (num == 0) {
+            return 0;
+        }
+
+        int contador = 0;
+        while (num > 0) {
+            int digito = num % 10;
+
+            if (digito % 2 != 0) {
+                contador++;
+            }
+
+            num /= 10;
+        }
+
+        return contador;
+    }
+
+    public static int contadorDigitosPares(int num){
+        if (num ==0){
+            return 1;
+        }
+        int contador = 0;
+        while (num > 0){
+            int digito = num % 10;
+            if (digito % 2 == 0){
+                contador++;
+            }
+            num = num/10;
+        }
+        return contador;
     }
 
     public static int contarDigitos (int num){
-        int contador;
-        for (contador = 0; num >= 10; contador++){
-            num = num / 10;
-            if (num < 10 && num > 1){
-                contador++;
-            }
+        if (num == 0){
+            return 1;
         }
+        int contador = 0;
+       while (num>0){
+           num =num / 10;
+           contador++;
+       }
         return contador;
     }
 
