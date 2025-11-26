@@ -84,8 +84,8 @@ public class Tema3Ejercicio10 {
                 break;
             case 3:
                 System.out.println("Ingresa un numero para decir cuantos digitos tiene");
-                int numero = in.nextInt();
-                System.out.println("Tiene "+contarDigitos(numero)+" digitos");
+                int contadDigitos = in.nextInt();
+                System.out.println("Tiene "+contarDigitos(contadDigitos)+" digitos");
             case 4:
                 System.out.println("Ingresa un numero para decir cuantos digitos pares tiene");
                 int pares = in.nextInt();
@@ -96,10 +96,12 @@ public class Tema3Ejercicio10 {
                 System.out.println("Tiene "+contadorDigitosImpares(impares)+" digitos impares");
             case 6:
                 System.out.println("Introduce el numero el cual quires saber su factorial");
-                int num2 = in.nextInt();
-                System.out.println("El factorial de " + num2 + " es " + factorial(num2));
+                int numfact = in.nextInt();
+                System.out.println("El factorial de " + numfact + " es " + factorial(numfact));
             case 7:
-                System.out.println("No lo entendi y no lo puede sacar");
+                System.out.println("introduce un numero para saber su factorial recursivo");
+                int factorialrecursivo = in.nextInt();
+                System.out.println("El factorial recursivo es: "+factorialRecursivo(factorialrecursivo));
             case 8:
                 System.out.println("Introduce el valor de 'a' ");
                 int a = in.nextInt();
@@ -107,7 +109,16 @@ public class Tema3Ejercicio10 {
                 int b = in.nextInt();
                 System.out.println("Introduce el valor de 'c' ");
                 int c = in.nextInt();
-                ecuacion2Grado(a, b, c);
+                int resultados = ecuacion2Grado(a,b,c);
+                if (resultados == 2){
+                    System.out.println("Tiene 2 soluciones");
+                } else if (resultados == 1) {
+                    System.out.println("No tiene solucion");
+                }else {
+                    System.out.println("Tiene 1 solucion");
+                }
+                break;
+
             case 9:
                 System.out.println("Introduce un numero entero");
                 int numero2 = in.nextInt();
