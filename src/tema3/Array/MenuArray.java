@@ -2,6 +2,8 @@ package tema3.Array;
 
 import java.util.Scanner;
 
+import static tema3.Array.MyArray.*;
+
 public class MenuArray {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -22,18 +24,43 @@ public class MenuArray {
 
         switch (opcion){
             case 'a':
+                int [] array;
+                array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+                imprimirArray(array);
                 break;
             case 'b':
+                array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+                maxArray(array);
                 break;
             case 'c':
+                array = new int[] {1,2,3,4,5,6,7,8,9};
+                minArray(array);
                 break;
             case 'd':
+                array = new int[] {1,2,3,4,5,6,7,8,9};
+                mediaArray(array);
                 break;
             case 'e':
+                System.out.println("Dime un numero para ver si esta en el array");
+                int num = in.nextInt();
+                array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+                boolean resultado = existeSiNo(array,num);
+                if (resultado){
+                    System.out.println("Si esta en el array");
+                }else{
+                    System.out.println("No esta en el array");
+                }
                 break;
             case 'f':
+                int [] array2;
+                array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+                array2 = new int []{10,11,12,13,14,15,16,17,18};
+                suma2Vectores(array, array2);
                 break;
             case 'g':
+                array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+                array2 = new int []{10,11,12,13,14,15,16,17,18};
+                resta2Vectores(array, array2);
                 break;
             case 'h':
                 break;
