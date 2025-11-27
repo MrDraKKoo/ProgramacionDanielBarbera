@@ -8,7 +8,7 @@ public class MyArray {
         int [] array2;
         array = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
         array2 = new int []{10,11,12,13,14,15,16,17,18};
-        resta2Vectores(array,array2);
+        resta2Vectores(array, array2);
 
     }
 
