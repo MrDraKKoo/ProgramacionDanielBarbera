@@ -69,7 +69,6 @@ public class MyArray {
             case 'k':
                 System.out.println("Diem que array quieres comprobar si es capicua o no:");
                 System.out.println("1- array1");
-
                 System.out.println("2- array2");
                 System.out.println("3- array3");
                 int respuesta = in.nextInt();
@@ -98,19 +97,19 @@ public class MyArray {
                 }
                 break;
             case 'l':
-                in.nextLine();
-                System.out.println("Introduce los números separados por espacios para crear un array");
-                String[] tokens = in.nextLine().split(" ");
-                int[] arrayDeuser1 = new int[tokens.length];
-                for (int i = 0; i < tokens.length; i++) {
-                    arrayDeuser1[i] = Integer.parseInt(tokens[i]);
+                System.out.println("Introduce la cantidad de números que quieres para tus 2 arrays");
+                int tamano = in.nextInt();
+                int [] arrayDeuser1 = new int[tamano];
+                for (int i = 0; i < arrayDeuser1.length; i++) {
+                    System.out.println("introduce un numero para la posicion "+i);
+                    arrayDeuser1[i] = in.nextInt();
                 }
 
-                System.out.println("Introduce los números separados por espacios para crear otro array ya que necesitamos otro");
-                String[] tokens2 = in.nextLine().split(" ");
-                int[] arrayDeuser2 = new int[tokens2.length];
-                for (int i = 0; i < tokens2.length; i++) {
-                    arrayDeuser2[i] = Integer.parseInt(tokens2[i]);
+                System.out.println("Ahora vamos con el segundo array");
+                int [] arrayDeuser2 = new int[tamano];
+                for (int i = 0; i < arrayDeuser2.length; i++) {
+                    System.out.println("introduce un numero para la posicion "+i);
+                    arrayDeuser2[i] = in.nextInt();
                 }
 
                 System.out.println("Que opción quieres realizar:");
@@ -195,7 +194,6 @@ public class MyArray {
                         }
                         break;
                 }
-
         }
     }
 
@@ -206,7 +204,7 @@ public class MyArray {
         }
     }
 
-    public static void maxArray(int[] array) {
+    public static int maxArray(int[] array) {
         int max;
         int max1 = 1;
         for (int i = 0; i < array.length; i++) {
@@ -215,10 +213,10 @@ public class MyArray {
                 max1 = array[i];
             }
         }
-        System.out.println("El numero maximo es: " + max1);
+        return max1;
     }
 
-    public static void minArray(int[] array) {
+    public static int minArray(int[] array) {
         int min;
         int min1 = 1;
         for (int i = 0; i < array.length; i++) {
@@ -227,7 +225,7 @@ public class MyArray {
                 min1 = array[i];
             }
         }
-        System.out.println("El numero minimo es: " + min1);
+       return min1;
     }
 
     public static void mediaArray(int[] array) {
@@ -302,5 +300,4 @@ public class MyArray {
 
         return true;
     }
-
 }
