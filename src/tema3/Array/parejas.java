@@ -46,5 +46,4 @@ public class parejas {
         }
         System.out.println();
     }
-
 }
