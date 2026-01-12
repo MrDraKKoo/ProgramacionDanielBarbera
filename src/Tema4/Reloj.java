@@ -88,10 +88,10 @@ public class Reloj {
     }
 
     public String toString() {
-        if (formato) {
+        if (formato) {// para 24h
             return "Son las " + hora + ":" + minutos + ":" + segundos;
         }else {
-            if (ampm) {
+            if (ampm) { // para 12h
                 return "Son las " + hora + ":" + minutos + ":" + segundos + " AM";
             } else {
                 return "Son las " + hora + ":" + minutos + ":" + segundos + " PM";
