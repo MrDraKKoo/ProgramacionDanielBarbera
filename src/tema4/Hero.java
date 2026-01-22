@@ -33,9 +33,6 @@ public class Hero {
     public int rest (){
         return (this.health + 50);
     }
-    public String toString (){
-        return "Información del Hero:"+"\n"+"Nombre: "+name+"\n"+"Nivel: "+level+"\n"+"Vida actual: "+health+"\n"+"Vida maxima: "+maxHealth+"\n"+"Experiencia: "+experience+"\n"+"Ataque: "+attack+"\n"+"Defensa:"+defense;
-    }
 
     public String getName() {
         return name;
@@ -92,5 +89,8 @@ public class Hero {
 
     public void setDefense(int defense) {
         this.defense = defense;
+    }
+    public String toString (){
+        return "Información del Hero:"+"\n"+"Nombre: "+name+"\n"+"Nivel: "+level+"\n"+"Vida actual: "+health+"\n"+"Vida maxima: "+maxHealth+"\n"+"Experiencia: "+experience+"\n"+"Ataque: "+attack+"\n"+"Defensa:"+defense;
     }
 }
