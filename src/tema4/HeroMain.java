@@ -21,10 +21,10 @@ public class HeroMain {
         System.out.println("Introduce tu defensa");
         hero1.setDefense(in.nextInt());
 
-        System.out.println(hero1);
+        System.out.println("\n"+hero1);
 
         Hero hero2 = new Hero();
-        System.out.println("Introduce tu nombre");
+        System.out.println("\n"+"Introduce tu nombre");
         in.nextLine();
         hero2.setName(in.nextLine());
         System.out.println("Introduce tu nivel");
@@ -39,7 +39,8 @@ public class HeroMain {
         System.out.println("Introduce tu defensa");
         hero2.setDefense(in.nextInt());
 
-        System.out.println(hero2);
+        System.out.println("\n"+hero2);
+
         Hero.attack(hero1,hero2);
     }
 }
