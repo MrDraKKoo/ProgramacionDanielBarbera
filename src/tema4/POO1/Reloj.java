@@ -1,4 +1,4 @@
-package tema4;
+package tema4.POO1;
 
 public class Reloj {
     int hora;

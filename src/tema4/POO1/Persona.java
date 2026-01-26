@@ -1,4 +1,4 @@
-package tema4;
+package tema4.POO1;
 
 import java.util.Scanner;
 
@@ -29,6 +29,33 @@ public class Persona {
     }
     public Persona(String DNI){
         this.DNI = DNI;
+    }
+    public static String isCheckDNI (){
+        char[] letras = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+        Scanner in = new Scanner(System.in);
+        System.out.println("Introduce SOLO los numeros del DNI");
+        int numeroDNI = in.nextInt();
+        System.out.println("Introduce SOLO la letra del DNI");
+        char letraUsuario = in.next().toUpperCase().charAt(0);
+        int posicion = numeroDNI % 23;
+
+
+        if (letras[posicion] == letraUsuario) {
+            return "El DNI es valido";
+        } else {
+            return "El DNI NO es valido";
+        }
+    }
+
+    public static int ageDiference (int edad, int edad2){
+
+        if (edad > edad2){
+            return (edad - edad2);
+        } else if (edad < edad2){
+            return  (edad2 - edad);
+        }else {
+            return 0;
+        }
     }
 
     public String getDNI() {
@@ -84,34 +111,6 @@ public class Persona {
             return "Esta retirado";
         }else {
             return "NO esta retirado";
-        }
-    }
-
-    public static String isCheckDNI (){
-        char[] letras = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
-        Scanner in = new Scanner(System.in);
-        System.out.println("Introduce SOLO los numeros del DNI");
-        int numeroDNI = in.nextInt();
-        System.out.println("Introduce SOLO la letra del DNI");
-        char letraUsuario = in.next().toUpperCase().charAt(0);
-        int posicion = numeroDNI % 23;
-
-
-        if (letras[posicion] == letraUsuario) {
-            return "El DNI es valido";
-        } else {
-            return "El DNI NO es valido";
-        }
-    }
-
-    public static int ageDiference (int edad, int edad2){
-
-        if (edad > edad2){
-            return (edad - edad2);
-        } else if (edad < edad2){
-            return  (edad2 - edad);
-        }else {
-            return 0;
         }
     }
 
