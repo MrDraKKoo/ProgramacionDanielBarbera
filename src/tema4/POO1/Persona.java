@@ -46,7 +46,6 @@ public class Persona {
             return "El DNI NO es valido";
         }
     }
-
     public static int ageDiference (int edad, int edad2){
 
         if (edad > edad2){

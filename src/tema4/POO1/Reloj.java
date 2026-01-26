@@ -10,6 +10,7 @@ public class Reloj {
     public static final int hDefault2 = 12;
     public static final int mDefault = 59;
     public static final int sDefault = 59;
+
     public Reloj () { // Constructor vacio
         hora = 12;
         minutos = 0;

@@ -21,7 +21,6 @@ public class Hero {
         this.attack = 30;
         this.defense = 40;
     }
-
     public Hero(String name, int level, int health, int maxHealth, int experience, int attack, int defense) {
         this.name = name;
         this.level = level;

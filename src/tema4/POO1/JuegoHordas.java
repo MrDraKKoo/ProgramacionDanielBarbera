@@ -4,9 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class JuegoHordas {
-    public static void main(String[] args) {
-
-    }
     public static void Horda (Hero hero1, Hero hero2, Hero hero3, Hero hero4) {
         Random random = new Random();
         Scanner in = new Scanner(System.in);
