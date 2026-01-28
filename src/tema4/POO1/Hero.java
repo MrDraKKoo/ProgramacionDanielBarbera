@@ -11,7 +11,6 @@ public class Hero {
     int experience;
     int attack;
     int defense;
-
     public Hero() {
         this.name = "Dani";
         this.level = 100;

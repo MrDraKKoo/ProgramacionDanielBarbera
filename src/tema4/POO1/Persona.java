@@ -11,8 +11,6 @@ public class Persona {
     private static final int adultAge = 18;
     private static final int  retiredAge = 65;
     private static  final int defaultAge = 20;
-
-
     public Persona (){ // constructor vacio
         DNI = "11223344D";
         nombre = "Daniel";

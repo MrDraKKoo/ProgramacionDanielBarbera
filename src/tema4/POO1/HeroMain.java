@@ -7,6 +7,7 @@ public class HeroMain {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         Hero hero1 = new Hero();
+
         System.out.println("Introduce tu nombre");
         hero1.setName(in.nextLine());
         System.out.println("Introduce tu nivel");

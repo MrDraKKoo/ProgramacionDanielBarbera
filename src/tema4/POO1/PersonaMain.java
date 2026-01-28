@@ -9,13 +9,10 @@ public class PersonaMain {
         Persona persona1 = new Persona(in.nextLine());
         System.out.println("Introduce tu nombre");
         persona1.setNombre(in.nextLine());
-
         System.out.println("Introduce tu primer apellido");
         persona1.setApellido1(in.nextLine());
-
         System.out.println("Introduce tu segundo apellido");
         persona1.setApellido2(in.nextLine());
-
         System.out.println("Introduce tu edad");
         persona1.setEdad(in.nextInt());
         System.out.println(persona1);
@@ -29,13 +26,10 @@ public class PersonaMain {
         Persona persona2 = new Persona(in.nextLine());
         System.out.println("Introduce tu nombre");
         persona2.setNombre(in.nextLine());
-
         System.out.println("Introduce tu primer apellido");
         persona2.setApellido1(in.nextLine());
-
         System.out.println("Introduce tu segundo apellido");
         persona2.setApellido2(in.nextLine());
-
         System.out.println("Introduce tu edad");
         persona2.setEdad(in.nextInt());
         System.out.println(persona2);

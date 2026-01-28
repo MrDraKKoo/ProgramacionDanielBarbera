@@ -13,7 +13,7 @@ public class JuegoHordas {
             int maxDamageBot = Math.max(hero2.attack - hero1.defense, 10);
             int danioDelBot = random.nextInt(maxDamageBot) + 1;
 
-            // Resestar la vida de los orcos para la soguiente oleada
+            // Resestar la vida de los orcos para la siguiente oleada
             hero2.health = hero2.maxHealth;
             hero3.health = hero3.maxHealth;
             hero4.health = hero4.maxHealth;

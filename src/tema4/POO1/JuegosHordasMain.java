@@ -17,7 +17,6 @@ public class JuegosHordasMain {
         hero1.setAttack(in.nextInt());
         System.out.println("Introduce tu defensa");
         hero1.setDefense(in.nextInt());
-
         System.out.println("\n" + hero1);
 
         Hero hero2 = new Hero();
