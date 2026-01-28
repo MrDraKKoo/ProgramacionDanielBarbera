@@ -29,19 +29,19 @@ public class JuegosHordasMain {
 
         Hero hero3 = new Hero();
         hero3.setName("Ogro Mediano");
-        hero3.setLevel(hero1.level - 6);
-        hero3.setMaxHealth(hero1.maxHealth - 6);
+        hero3.setLevel(hero1.level - 5);
+        hero3.setMaxHealth(hero1.maxHealth - 5);
         hero3.setHealth(hero3.maxHealth);
-        hero3.setAttack(hero1.attack - 6);
-        hero3.setDefense(hero1.defense - 6);
+        hero3.setAttack(hero1.attack - 5);
+        hero3.setDefense(hero1.defense - 5);
 
         Hero hero4 = new Hero();
         hero4.setName("Ogro Enano");
-        hero4.setLevel(hero1.level - 7);
-        hero4.setMaxHealth(hero1.maxHealth - 7);
+        hero4.setLevel(hero1.level - 5);
+        hero4.setMaxHealth(hero1.maxHealth - 5);
         hero4.setHealth(hero4.maxHealth);
-        hero4.setAttack(hero1.attack - 7);
-        hero4.setDefense(hero1.defense - 7);
+        hero4.setAttack(hero1.attack - 5);
+        hero4.setDefense(hero1.defense - 5);
 
         JuegoHordas.Horda(hero1, hero2, hero3, hero4);
     }

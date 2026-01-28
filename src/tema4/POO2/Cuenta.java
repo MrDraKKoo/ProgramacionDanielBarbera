@@ -1,13 +1,15 @@
 package tema4.POO2;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class Cuenta {
-    String num_cuenta;
-    double saldo;
+    private String num_cuenta;
+    private double saldo;
     public Cuenta (){
         this.num_cuenta = "1122334455667788";
-        this.saldo = 100;
+        this.saldo = 4300;
     }
     public Cuenta(String num_cuenta, double saldo){
         this.num_cuenta = num_cuenta;
@@ -35,5 +37,21 @@ public class Cuenta {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public void mostrarSaldo (){
+        System.out.println("Tu saldo actual es de: "+this.saldo+"€");
+    }
+
+    public void recibirAbono (double abono){
+        System.out.println("Se ha hecho un abono de "+abono);
+        this.saldo = this.saldo +abono;
+        System.out.println("Tu saldo actual es de "+this.saldo+"€");
+    }
+
+    public void pagarRecibo(double recibo) {
+        System.out.println("Se ha realizado un pago por un recibo de un total de "+recibo +"€");
+        this.saldo = this.saldo - recibo;
+        System.out.println("Tu saldo actual es de "+this.saldo+"€");
     }
 }

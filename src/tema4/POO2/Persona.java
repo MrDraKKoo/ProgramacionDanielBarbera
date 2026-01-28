@@ -3,17 +3,18 @@ package tema4.POO2;
 import java.util.Scanner;
 
 public class Persona {
-    String nombre;
-    String apellido1;
-    String apellido2;
-    String DNI;
-
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private String DNI;
+    private String [] cuentasBancarias;
     public Persona (){
         this.nombre = "Dani";
         this.apellido1 = "Barberá";
         this.apellido2 = "Torres";
-        this.DNI = DNI;
-    }
+        this.DNI = "12345678A";
+
+     }
     public Persona (String nombre, String apellido1, String apellido2, String DNI){
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -21,7 +22,7 @@ public class Persona {
         this.DNI = DNI;
     }
 
-    public String getNombre() {
+    public String getNombre()  {
         return nombre;
     }
 
