@@ -44,12 +44,12 @@ public class Persona {
             return "El DNI NO es valido";
         }
     }
-    public static int ageDiference (int edad, int edad2){
+    public int ageDiference(Persona persona1){
 
-        if (edad > edad2){
-            return (edad - edad2);
-        } else if (edad < edad2){
-            return  (edad2 - edad);
+        if (this.edad > persona1.edad){
+            return (this.edad - persona1.edad);
+        } else if (this.edad < persona1.edad){
+            return  (persona1.edad - this.edad);
         }else {
             return 0;
         }
