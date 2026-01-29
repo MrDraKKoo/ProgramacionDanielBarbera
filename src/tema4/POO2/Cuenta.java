@@ -4,7 +4,6 @@ public class Cuenta {
     private String num_cuenta;
     private double saldo;
 
-    // Constructor por defecto
     public Cuenta() {
         this.num_cuenta = "0000000000000000";
         this.saldo = 0.0;
