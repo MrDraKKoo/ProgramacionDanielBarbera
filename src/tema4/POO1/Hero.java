@@ -124,6 +124,8 @@ public class Hero {
         this.maxHealth = this.maxHealth + 5;
         this.attack = this.attack + 1;
         this.defense = this.defense + 1;
+
+        //experiencia a 0
     }
 
     public String toString() {

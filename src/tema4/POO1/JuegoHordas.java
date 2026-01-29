@@ -4,14 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class JuegoHordas {
-    public static void Horda (Hero hero1, Hero hero2, Hero hero3, Hero hero4) {
+    public static void horda (Hero hero1, Hero hero2, Hero hero3, Hero hero4) {
         Random random = new Random();
         Scanner in = new Scanner(System.in);
         int hordas = 0;
         while (hero1.health > 0) {
             int cantidad_orcos = random.nextInt(3) + 1;
-            int maxDamageBot = Math.max(hero2.attack - hero1.defense, 10);
-            int danioDelBot = random.nextInt(maxDamageBot) + 1;
+
 
             // Resestar la vida de los orcos para la siguiente oleada
             hero2.health = hero2.maxHealth;
@@ -21,6 +20,8 @@ public class JuegoHordas {
             System.out.println("¡Alerta acaban de asaltarte " + cantidad_orcos + " orcos!");
             //bucle del ataque segun la cantidad de enemigos en campo
             while (cantidad_orcos >= 1 && hero2.health > 0 || cantidad_orcos >= 2 && hero3.health > 0 || cantidad_orcos >= 3 && hero4.health > 0) {
+                int maxDamageBot = Math.max(hero2.attack - hero1.defense, 10);
+                int danioDelBot = random.nextInt(maxDamageBot) + 1;
 
                 //comprobar si alguno va a huir y si huye se le baja la vida a 0 para eliminarlo
                 if (hero2.health > 0 && random.nextDouble() < 0.10) {

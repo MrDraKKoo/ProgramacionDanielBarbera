@@ -43,6 +43,6 @@ public class JuegosHordasMain {
         hero4.setAttack(hero1.attack - 5);
         hero4.setDefense(hero1.defense - 5);
 
-        JuegoHordas.Horda(hero1, hero2, hero3, hero4);
+        JuegoHordas.horda(hero1, hero2, hero3, hero4);
     }
 }

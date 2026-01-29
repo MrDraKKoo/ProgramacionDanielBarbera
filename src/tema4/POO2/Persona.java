@@ -7,7 +7,9 @@ public class Persona {
     private String apellido1;
     private String apellido2;
     private String DNI;
-    private String [] cuentasBancarias;
+    private Cuenta[] cuentas = new Cuenta[3];
+    private int cantidadCuentas = 0;
+
     public Persona (){
         this.nombre = "Dani";
         this.apellido1 = "Barberá";
@@ -59,5 +61,32 @@ public class Persona {
         }
         this.DNI = DNI;
 
+    }
+
+    public void añadirCuenta(Cuenta nueva) {
+        if (cantidadCuentas < 3) {
+            cuentas[cantidadCuentas] = nueva;
+            cantidadCuentas++;
+            System.out.println("Cuenta " + nueva.getNumCuenta() + " añadida correctamente.");
+        } else {
+            System.out.println("Error: No se pueden añadir más de 3 cuentas a " + this.DNI);
+        }
+    }
+
+    public boolean esMorosa() {
+        for (int i = 0; i < cantidadCuentas; i++) {
+            // Verificamos el saldo de cada cuenta que existe
+            if (cuentas[i].getSaldo() < 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void mostrarInfo (){
+        System.out.println("Nombre: "+this.nombre);
+        System.out.println("Apelido1: "+this.apellido1);
+        System.out.println("Apelido2: "+this.apellido2);
+        System.out.println("DNI: "+this.DNI);
+        System.out.println("Cuentas asociadas: "+cantidadCuentas);
     }
 }

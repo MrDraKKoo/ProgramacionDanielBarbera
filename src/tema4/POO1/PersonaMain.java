@@ -18,7 +18,7 @@ public class PersonaMain {
         System.out.println(persona1);
         System.out.println(persona1.isAdult());
         System.out.println(persona1.isRetired());
-        System.out.println(Persona.isCheckDNI());
+        persona1.isCheckDNI();
 
 
         System.out.println("Introduce tu DNI");
@@ -35,7 +35,7 @@ public class PersonaMain {
         System.out.println(persona2);
         System.out.println(persona2.isAdult());
         System.out.println(persona2.isRetired());
-        System.out.println(Persona.isCheckDNI());
+        persona2.isCheckDNI();
 
         System.out.println("La diferencia es de "+persona2.ageDiference(persona1)+" años");
 

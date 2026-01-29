@@ -34,7 +34,7 @@ public class PruebaCuentas {
             case 3:
                 System.out.println("Introduce el DNI para mostrar datos de esa cuenta");
                 persona1.setDNI(in.nextLine());
-                cuenta1.mostrarSaldo();
+
                 break;
             case 4:
                 break;
@@ -42,19 +42,19 @@ public class PruebaCuentas {
                 System.out.println("Introduce el DNI");
                 persona1.setDNI(in.nextLine());
                 System.out.println("Introdcue el numero de cuenta");
-                cuenta1.setNum_cuenta(in.nextLine());
+
                 System.out.println("Introduce la cantidad de dinero del recibo");
                 double recibo = in.nextDouble();
-                cuenta1.pagarRecibo(recibo);
+
                 break;
             case 6:
                 System.out.println("Introduce la cantidad de dinero que quieres tranferir");
                 double transferencia = in.nextDouble();
                 System.out.println("Introduce el numero de cuenta el cual quieres enviar el dinero");
-                cuenta1.setNum_cuenta(in.nextLine());
+
                 cuenta1.pagarRecibo(transferencia);
                 System.out.println("Introduce el numero de cuenta el cual quieres recibir el dinero");
-                cuenta1.setNum_cuenta(in.nextLine());
+
                 cuenta1.recibirAbono(transferencia);
                 break;
             case 7:

@@ -3,7 +3,7 @@ package tema4.POO1;
 import java.util.Scanner;
 
 public class Persona {
-    private final String DNI;
+    private String DNI;
     private String nombre;
     private String apellido1;
     private String apellido2;
@@ -28,14 +28,14 @@ public class Persona {
     public Persona(String DNI){
         this.DNI = DNI;
     }
-    public static String isCheckDNI (){
+
+    public String isCheckDNI (){
         char[] letras = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
         Scanner in = new Scanner(System.in);
-        System.out.println("Introduce SOLO los numeros del DNI");
-        int numeroDNI = in.nextInt();
-        System.out.println("Introduce SOLO la letra del DNI");
-        char letraUsuario = in.next().toUpperCase().charAt(0);
-        int posicion = numeroDNI % 23;
+        String dni = DNI.substring(0,8);
+        int numDni = Integer.parseInt(dni);
+        int posicion = numDni % 23;
+        char letraUsuario = DNI.toUpperCase().charAt(8);
 
 
         if (letras[posicion] == letraUsuario) {
