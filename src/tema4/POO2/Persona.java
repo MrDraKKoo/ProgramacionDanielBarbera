@@ -89,4 +89,32 @@ public class Persona {
         System.out.println("DNI: "+this.DNI);
         System.out.println("Cuentas asociadas: "+cantidadCuentas);
     }
+
+    public void mostrarDatosCuenta(String numCuenta) {
+        boolean encontrada = false;
+        for (int i = 0; i < cantidadCuentas; i++) {
+            if (cuentas[i].getNumCuenta().equals(numCuenta)) {
+                System.out.println("Cuenta: " + cuentas[i].getNumCuenta());
+                System.out.println("Saldo: " + cuentas[i].getSaldo() + "€");
+                encontrada = true;
+            }
+        }
+        if (!encontrada) {
+            System.out.println("ERROR: La cuenta no existe para esta persona.");
+        }
+    }
+    public boolean gestionarMovimiento(String nCuenta, double cantidad, boolean esAbono) {
+        for (int i = 0; i < cantidadCuentas; i++) {
+            if (cuentas[i].getNumCuenta().equals(nCuenta)) {
+                if (esAbono) {
+                    cuentas[i].recibirAbono(cantidad); // Suma
+                } else {
+                    cuentas[i].pagarRecibo(cantidad); // Resta
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
