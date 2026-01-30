@@ -1,7 +1,5 @@
 package tema4.POO2;
 
-import java.util.Scanner;
-
 public class Persona {
     private String nombre;
     private String apellido1;
@@ -10,7 +8,6 @@ public class Persona {
     private Cuenta[] cuentas;
     private int contadorCuentas;
 
-    // --- CONSTRUCTORES ---
 
     public Persona() {
         this.nombre = "Dani";
@@ -29,8 +26,6 @@ public class Persona {
         this.cuentas = new Cuenta[3];
         this.contadorCuentas = 0;
     }
-
-    // --- GETTERS Y SETTERS ---
 
     public String getNombre() {
         return nombre;
