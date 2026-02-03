@@ -5,8 +5,8 @@ public class Cuenta {
     private double saldo;
 
     public Cuenta() {
-        this.num_cuenta = "0000000000000000";
-        this.saldo = 0.0;
+        this.num_cuenta = "1122334455667788";
+        this.saldo = 100.0;
     }
 
     public Cuenta(String num_cuenta, double saldo) {
@@ -32,13 +32,11 @@ public class Cuenta {
 
     public void recibirAbono(double cantidad) {
         if (cantidad > 0) {
-            this.saldo = this.saldo + cantidad;
-            System.out.println("Abono realizado. Nuevo saldo: " + this.saldo + "€");
+            this.saldo =this.saldo + cantidad;
         }
     }
 
     public void pagarRecibo(double cantidad) {
-            this.saldo = this.saldo - cantidad;
-            System.out.println("Recibo pagado. Nuevo saldo: " + this.saldo + "€");
+        this.saldo = this.saldo - cantidad;
     }
 }

@@ -5,8 +5,9 @@ public class Persona {
     private String apellido1;
     private String apellido2;
     private String DNI;
-    private Cuenta[] cuentas;
-    private int contadorCuentas;
+    private Cuenta[] cuentas = new Cuenta[3];
+    private int contadorCuentas = 0;
+
 
 
     public Persona() {
@@ -14,8 +15,7 @@ public class Persona {
         this.apellido1 = "Barberá";
         this.apellido2 = "Torres";
         this.DNI = "12345678A";
-        this.cuentas = new Cuenta[3];
-        this.contadorCuentas = 0;
+
     }
 
     public Persona(String nombre, String apellido1, String apellido2, String DNI) {
@@ -23,8 +23,23 @@ public class Persona {
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.DNI = DNI;
-        this.cuentas = new Cuenta[3];
-        this.contadorCuentas = 0;
+
+    }
+
+    public Cuenta[] getCuentas() {
+        return cuentas;
+    }
+
+    public void setCuentas(Cuenta[] cuentas) {
+        this.cuentas = cuentas;
+    }
+
+    public int getContadorCuentas() {
+        return contadorCuentas;
+    }
+
+    public void setContadorCuentas(int contadorCuentas) {
+        this.contadorCuentas = contadorCuentas;
     }
 
     public String getNombre() {
@@ -59,50 +74,26 @@ public class Persona {
         this.DNI = DNI;
     }
 
-    public int getContadorCuentas() {
-        return contadorCuentas;
-    }
-
-
-    public void añadirCuenta(Cuenta c) {
-        if (this.contadorCuentas < 3) {
-            this.cuentas[this.contadorCuentas] = c;
-            this.contadorCuentas++;
+    public void añadirCuenta(Cuenta nuevaCuenta) {
+        if (contadorCuentas < 3) {
+            cuentas[contadorCuentas] = nuevaCuenta;
+            contadorCuentas++;
         } else {
             System.out.println("Error: Esta persona ya tiene el máximo de 3 cuentas.");
         }
     }
 
     public boolean esMorosa() {
+        boolean esMorosa = false;
         for (int i = 0; i < contadorCuentas; i++) {
             if (cuentas[i].getSaldo() < 0) {
-                return true;
+                esMorosa = true;
             }
         }
-        return false;
+        return esMorosa;
     }
 
-    public void mostrarDatos() {
-        System.out.println("DNI: " + DNI + " | Nombre: " + nombre + " " + apellido1 + " " + apellido2);
-        if (contadorCuentas == 0) {
-            System.out.println("   (No tiene cuentas asociadas)");
-        } else {
-            for (int i = 0; i < contadorCuentas; i++) {
-                System.out.println("   Cuenta " + (i + 1) + ": " + cuentas[i].getNumCuenta() + " | Saldo: " + cuentas[i].getSaldo() + "€");
-            }
-        }
-    }
-
-    public int buscarIndiceCuenta(String numCuenta) {
-        for (int i = 0; i < contadorCuentas; i++) {
-            if (cuentas[i].getNumCuenta().equals(numCuenta)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public Cuenta obtenerCuenta(int indice) {
-        return cuentas[indice];
+    public String toString() {
+        return nombre + " " + apellido1 + " (DNI: " + DNI + ")";
     }
 }
