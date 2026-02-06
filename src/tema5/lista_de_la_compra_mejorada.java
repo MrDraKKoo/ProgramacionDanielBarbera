@@ -38,7 +38,7 @@ public class lista_de_la_compra_mejorada {
                     }
                     break;
                 case 3:
-                    System.out.println("Que producto quieres añadir a la lista?");
+                    System.out.println("Que producto quieres añadir al carrito?");
                     prodcuto=(in.nextLine());
                     if (carrito.contains(prodcuto)) {
                         System.out.println("El producto ya esta en el carrito");
