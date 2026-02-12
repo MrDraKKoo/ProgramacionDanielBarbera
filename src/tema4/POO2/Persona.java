@@ -4,7 +4,7 @@ public class Persona {
     private String nombre;
     private String apellido1;
     private String apellido2;
-    private String DNI;
+    private String dni;
     private Cuenta[] cuentas = new Cuenta[3];
     private int contadorCuentas = 0;
 
@@ -14,7 +14,7 @@ public class Persona {
         this.nombre = "Dani";
         this.apellido1 = "Barberá";
         this.apellido2 = "Torres";
-        this.DNI = "12345678A";
+        this.dni = "12345678A";
 
     }
 
@@ -22,7 +22,7 @@ public class Persona {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
-        this.DNI = DNI;
+        this.dni = DNI;
 
     }
 
@@ -67,11 +67,11 @@ public class Persona {
     }
 
     public String getDNI() {
-        return DNI;
+        return dni;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setDNI(String dni) {
+        this.dni = dni;
     }
 
     public void añadirCuenta(Cuenta nuevaCuenta) {
@@ -94,6 +94,6 @@ public class Persona {
     }
 
     public String toString() {
-        return nombre + " " + apellido1 + " (DNI: " + DNI + ")";
+        return nombre + " " + apellido1 + " (DNI: " + dni + ")";
     }
 }
