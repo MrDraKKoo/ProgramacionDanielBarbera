@@ -10,6 +10,27 @@ public class Libro extends Ficha {
         this.editorial = editorial;
     }
 
+    public Libro() {
+        this.autor = "Daniel";
+        this.editorial = "PLanet";
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
+    }
+
     @Override
     public String toString() {
         return "Autor: "+autor+"\nEditorial: " + editorial;
