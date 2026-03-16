@@ -14,17 +14,6 @@ public abstract class Figura2D {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
     public String getNombre() {
         return nombre;
     }

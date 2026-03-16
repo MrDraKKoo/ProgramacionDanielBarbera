@@ -30,6 +30,7 @@ public class Ejercicio5 {
 
         }while (repetir==true);
         System.out.println("Programa finalizado con exito");
+        in.close();
     }
     public static void imprimePositivo(int p) throws Exception{
         if(p < 0){

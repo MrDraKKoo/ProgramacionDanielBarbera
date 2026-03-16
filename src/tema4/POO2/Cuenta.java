@@ -39,4 +39,6 @@ public class Cuenta {
     public void pagarRecibo(double cantidad) {
         this.saldo = this.saldo - cantidad;
     }
+
+    //toString
 }

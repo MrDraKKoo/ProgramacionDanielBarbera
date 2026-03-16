@@ -41,4 +41,6 @@ public class UsuariosBanco {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
+
+
 }

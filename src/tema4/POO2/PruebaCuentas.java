@@ -8,8 +8,12 @@ public class PruebaCuentas {
         Persona[] listaPersonas = new Persona[5];
         int contadorPersonas =0;
         int opcion;
+        String numCuenta;
+        String dniOrigen;
+        double saldo;
 
         do {
+            //meter menú en procedimiento
             System.out.println("\n1. Instanciar objetos de tipo Persona");
             System.out.println("2. Instanciar objetos de tipo Cuenta y asociarlo a una persona.");
             System.out.println("3. Mostrar datos de una persona (por su dni).");
@@ -25,6 +29,8 @@ public class PruebaCuentas {
 
             switch (opcion) {
                 case 1:
+                    //crear métodos para cada case
+
                     Persona persona = new Persona();
                     System.out.print("Nombre: ");
                     persona.setNombre(in.nextLine());
@@ -34,6 +40,8 @@ public class PruebaCuentas {
                     persona.setApellido2(in.nextLine());
                     System.out.print("DNI: ");
                     persona.setDNI(in.nextLine());
+
+
                     listaPersonas[contadorPersonas] = persona;
                     System.out.println("Persona guardada");
                     contadorPersonas++;
@@ -47,14 +55,14 @@ public class PruebaCuentas {
 
                     if (personaCuenta != null) {
                         System.out.print("Número de cuenta: ");
-                        String numCuenta = in.nextLine();
+                        numCuenta = in.nextLine();
 
                         System.out.print("Saldo inicial: ");
-                        double saldo = in.nextDouble();
+                        saldo = in.nextDouble();
                         in.nextLine();
 
                         Cuenta nuevaCuenta = new Cuenta(numCuenta, saldo);
-                        personaCuenta.añadirCuenta(nuevaCuenta);
+                        personaCuenta.anyadirCuenta(nuevaCuenta);
 
                         System.out.println("Cuenta añadida correctamente.");
                     } else {
@@ -73,6 +81,8 @@ public class PruebaCuentas {
 
                         System.out.println("Cuentas:");
                         for (int i = 0; i < personaMostrar.getContadorCuentas(); i++) {
+
+                            //Esto es lo que deberia haber dentro del toString de Cuenta
                             System.out.println("- Nº Cuenta: " +personaMostrar.getCuentas()[i].getNumCuenta());
                             System.out.println("Saldo: " + personaMostrar.getCuentas()[i].getSaldo());
                         }
@@ -89,7 +99,7 @@ public class PruebaCuentas {
 
                     if (personaNomina != null) {
                         System.out.print("introduce el número de cuenta: ");
-                        String numCuenta = in.nextLine();
+                        numCuenta = in.nextLine();
 
                         boolean cuentaEncontrada = false;
 
@@ -124,7 +134,7 @@ public class PruebaCuentas {
 
                     if (personaPago != null) {
                         System.out.print("Introduce el número de cuenta: ");
-                        String numCuenta = in.nextLine();
+                        numCuenta = in.nextLine();
 
                         boolean cuentaEncontrada = false;
 
@@ -152,7 +162,7 @@ public class PruebaCuentas {
 
                 case 6:
                     System.out.print("DNI origen: ");
-                    String dniOrigen = in.nextLine();
+                    dniOrigen = in.nextLine();
                     System.out.print("Cuenta origen: ");
                     String numCuentaOrigen = in.nextLine();
                     System.out.print("DNI destino: ");
@@ -194,7 +204,7 @@ public class PruebaCuentas {
                     for (int i = 0; i < contadorPersonas; i++) {
                         if (listaPersonas[i].esMorosa()) {
                             System.out.println("Personas morosas:");
-                            System.out.println(listaPersonas[i].toString());
+                            System.out.println(listaPersonas[i]);
                             hayMorosos = true;
                         }
                     }

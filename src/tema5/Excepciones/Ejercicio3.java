@@ -24,6 +24,7 @@ public class Ejercicio3 {
             }
         }
         System.out.println("Array completado: "+ Arrays.toString(array));
+        in.close();
     }
 }
 

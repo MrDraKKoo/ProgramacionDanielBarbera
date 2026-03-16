@@ -74,7 +74,7 @@ public class Persona {
         this.dni = dni;
     }
 
-    public void añadirCuenta(Cuenta nuevaCuenta) {
+    public void anyadirCuenta(Cuenta nuevaCuenta) {
         if (contadorCuentas < 3) {
             cuentas[contadorCuentas] = nuevaCuenta;
             contadorCuentas++;

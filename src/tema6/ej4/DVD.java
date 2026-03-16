@@ -1,8 +1,5 @@
-package tema6.ej4;
+/*package tema6.ej4;
 
-public class DVD extends Ficha {
-    private String director;
-    private int anyo;
     private String tipo;
 
     public DVD(int numero, String titulo, String director, int año, String tipo) {
@@ -10,6 +7,7 @@ public class DVD extends Ficha {
         this.director = director;
         this.anyo = anyo;
         this.tipo = tipo;
+
     }
 
     @Override
@@ -17,3 +15,4 @@ public class DVD extends Ficha {
         return super.toString() + " | Director: " + director + " (" + anyo + ") Tipo: " + tipo;
     }
 }
+*/

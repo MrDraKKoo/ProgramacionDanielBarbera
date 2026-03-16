@@ -32,5 +32,7 @@ public class Ejercicio7 {
             System.out.println("Nombre: " + gatos.getNombre());
             System.out.println("Edad: " + gatos.getEdad());
         }
+        in.close();
+
     }
 }

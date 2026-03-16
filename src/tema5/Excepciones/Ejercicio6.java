@@ -31,6 +31,7 @@ public class Ejercicio6 {
                 repetir = true;
             }
         } while (repetir);
+        in.close();
     }
 }
 

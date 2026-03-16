@@ -19,5 +19,6 @@ public class Ejercicio2 {
         } catch (ArithmeticException ex){
             System.out.println("Error: "+ex.getMessage());
         }
+        in.close();
     }
 }

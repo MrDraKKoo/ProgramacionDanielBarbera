@@ -7,6 +7,7 @@ public class Banco {
         List<UsuariosBanco> usuariosBancoCola= new LinkedList<>();
         Scanner in = new Scanner(System.in);
         Random random = new Random();
+        String nombre;
         int opcion;
         do {
             System.out.println("Que quieres realizar:");
@@ -20,7 +21,7 @@ public class Banco {
             switch (opcion){
                 case 1:
                     System.out.println("Introduce el nombre:");
-                    String nombre = in.nextLine();
+                    nombre = in.nextLine();
                     System.out.println("Introduce la edad:");
                     int  edad = in.nextInt();
                     System.out.println("Introduce el DNI");

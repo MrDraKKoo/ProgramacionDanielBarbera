@@ -46,9 +46,10 @@ public class Gimnasio {
                     System.out.println("Inrtoduce el DNI del usuario que quieres ver:");
                     DNI = in.nextLine();
                     if (usgym.containsKey(DNI)) {
-                        System.out.println("EL DNI " + DNI + " pertenece a:");
+                        System.out.println(usgym);
+                        /*System.out.println("EL DNI " + DNI + " pertenece a:");
                         System.out.println("Nombre: " + usgym.get(DNI).getNombre());
-                        System.out.println("Edad: " + usgym.get(DNI).getEdad());
+                        System.out.println("Edad: " + usgym.get(DNI).getEdad());*/
                     }else {
                         System.out.println("El DNI introducido no pertenece a un usuario dado de alta");
                     }

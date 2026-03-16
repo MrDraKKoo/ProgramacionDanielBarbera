@@ -34,5 +34,6 @@ public class Ejercicio4 {
                 opcion = in.nextInt();
             }
         }
+        in.close();
     }
 }

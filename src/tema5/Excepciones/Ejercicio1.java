@@ -13,5 +13,6 @@ public class Ejercicio1 {
             System.out.println("Error: "+ex.getMessage());
             System.out.println("Valor introducido incorrecto");
         }
+        in.close();
     }
 }

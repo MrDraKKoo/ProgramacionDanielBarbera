@@ -1,25 +1,25 @@
 package tema5;
 
 public class Usuarios {
-    String Nombre;
+    String nombre;
     int edad;
 
     public Usuarios() {
-        this.Nombre = "Dani";
+        this.nombre = "Dani";
         this.edad = 19;
     }
 
     public Usuarios(String Nombre, int edad) {
-        this.Nombre = Nombre;
+        this.nombre = Nombre;
         this.edad = edad;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        nombre = nombre;
     }
 
     public int getEdad() {
@@ -29,6 +29,21 @@ public class Usuarios {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    @Override
+    public String toString() {
+        return "Usuarios{" +
+                "nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                '}';
+    }
+
+    /*public String toString (String DNI, usgym){
+        return
+        "\nEL DNI " + DNI + " pertenece a:"+
+        "\nNombre: " + usgym.get(DNI).getNombre()+
+        "\nEdad: " + usgym.get(DNI).getEdad();
+    }*/
 }
 
 
