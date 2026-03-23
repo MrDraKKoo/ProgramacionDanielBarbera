@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class ej3 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Introduce el nombre del archivo que quieres escribir en el");
+        System.out.println("Introduce el nombre del archivo que quieres escribir en el, dentro de la carpeta de ejBficheros");
         String archivo = in.nextLine();
-        System.out.println("Introduce el nombre del archivo que quieres leer");
+        System.out.println("Introduce el nombre del archivo que quieres leer, dentro de la carpeta de ejBficheros");
         String archivo2 = in.nextLine();
         ArrayList<String> lineas = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("/home/danbartor/Documents/ejBficheros/"+archivo))) {
