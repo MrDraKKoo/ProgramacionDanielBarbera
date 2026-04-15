@@ -45,8 +45,7 @@ public class MAIN_Funkos_serialización {
                     break;
             }
         }
-
-
+        exportarABinario(funkoArrayList);
     }
     public static void menu (){
         System.out.println("\n***Menú***");
@@ -61,6 +60,8 @@ public class MAIN_Funkos_serialización {
         System.out.println("Que quieres realizar ?");
     }
     public static void aniadirFunko(Scanner in, ArrayList<Funko_S> lista) {
+        System.out.println("Introduce codigo del Funko:");
+        String cod = in.nextLine();
         System.out.println("Introduce el nombre del Funko:");
         String nombre = in.nextLine();
         System.out.println("Introduce el modelo del Funko:");
@@ -68,10 +69,9 @@ public class MAIN_Funkos_serialización {
         System.out.println("Introduce el precio del Funko:");
         double precio = in.nextDouble();
         System.out.println("Introduce el anio del Funko:");
-        int anio = in.nextInt();
-        in.nextLine();
+        String anio = in.nextLine();
 
-        lista.add(new Funko_S(nombre, modelo, precio, anio));
+        lista.add(new Funko_S(cod, nombre, modelo, precio, anio));
         System.out.println("Funko añadido correctamente.");
     }
     public static void eliminarFunko(Scanner in, ArrayList<Funko_S> lista) {
@@ -151,33 +151,55 @@ public class MAIN_Funkos_serialización {
     }
     public static void mostrarPorAnio(ArrayList<Funko_S> lista) {
         for (Funko_S f : lista) {
-            if(f.getAnio() == 2023){
+            if (f.getAnio().startsWith("2023")) {
                 System.out.println(f);
             }
         }
     }
 
     public static void cargarFunkos(ArrayList<Funko_S> lista) {
-        File archivo = new File("funkos.dat");
+        File archivo = new File("funkos.csv");
 
         if (!archivo.exists()) {
             return;
         }
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
-            ArrayList<Funko_S> listaCargada = (ArrayList<Funko_S>) ois.readObject();
-            lista.addAll(listaCargada);
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error al cargar binario: " + e.getMessage());
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            br.readLine();
+            while ((linea = br.readLine()) != null) {
+                if (!linea.isEmpty()) {
+                    String[] partes = linea.split(",");
+                    if (partes.length == 5) {
+                        String cod = partes[0];
+                        String nombre = partes[1];
+                        String modelo = partes[2];
+                        double precio = Double.parseDouble(partes[3]);
+                        String anio = partes[4].split("-")[0];
+                        lista.add(new Funko_S(cod, nombre, modelo, precio, anio));
+                    }
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Error al cargar los datos: " + e.getMessage());
         }
     }
 
     public static void guardarFunkos(ArrayList<Funko_S> lista) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("funkos.dat"))) {
-            oos.writeObject(lista); // Guardamos la lista completa de un golpe
-            System.out.println("Datos serializados correctamente.");
+        try (PrintWriter pw = new PrintWriter(new FileWriter("funkos.csv"))) {
+            for (Funko_S f : lista) {
+                pw.println(f.getCod() + "," + f.getNombre() + "," + f.getModelo() + "," + f.getPrecio() + "," + f.getAnio() + "-01-01");
+            }
         } catch (IOException e) {
-            System.out.println("Error al serializar: " + e.getMessage());
+            System.out.println("Error al guardar los datos: " + e.getMessage());
+        }
+    }
+    public static void exportarABinario(ArrayList<Funko_S> lista) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("funkos.dat"))) {
+            oos.writeObject(lista);
+            System.out.println("Copiado con éxito a binario.");
+        } catch (IOException e) {
+            System.out.println("Error al exportar: " + e.getMessage());
         }
     }
 }
