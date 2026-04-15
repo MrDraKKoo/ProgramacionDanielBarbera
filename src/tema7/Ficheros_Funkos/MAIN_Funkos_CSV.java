@@ -45,9 +45,9 @@ public class MAIN_Funkos_CSV {
                     break;
             }
         }
-
-
     }
+
+
     public static void menu (){
         System.out.println("\n***Menú***");
         System.out.println("1) Añadir Funko");
@@ -61,17 +61,19 @@ public class MAIN_Funkos_CSV {
         System.out.println("Que quieres realizar ?");
     }
     public static void aniadirFunko(Scanner in, ArrayList<Funko_C> lista) {
+        System.out.println("Introduce su Codigo:");
+        String cod = in.nextLine();
         System.out.println("Introduce el nombre del Funko:");
         String nombre = in.nextLine();
         System.out.println("Introduce el modelo del Funko:");
         String modelo = in.nextLine();
         System.out.println("Introduce el precio del Funko:");
         double precio = in.nextDouble();
-        System.out.println("Introduce el anio del Funko:");
-        int anio = in.nextInt();
-        in.nextLine();
+        System.out.println("Introduce la fecha del Funko: (AAAA-MM-DD)");
+        String anio = in.nextLine();
 
-        lista.add(new Funko_C(nombre, modelo, precio, anio));
+
+        lista.add(new Funko_C(cod, nombre, modelo, precio, anio));
         System.out.println("Funko añadido correctamente.");
     }
     public static void eliminarFunko(Scanner in, ArrayList<Funko_C> lista) {
@@ -151,7 +153,7 @@ public class MAIN_Funkos_CSV {
     }
     public static void mostrarPorAnio(ArrayList<Funko_C> lista) {
         for (Funko_C f : lista) {
-            if(f.getAnio() == 2023){
+            if (f.getAnio().startsWith("2023")) {
                 System.out.println(f);
             }
         }
@@ -166,22 +168,21 @@ public class MAIN_Funkos_CSV {
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
+            br.readLine();
             while ((linea = br.readLine()) != null) {
                 if (!linea.isEmpty()) {
-
                     String[] partes = linea.split(",");
-                    // asignar cada parte
-                    if (partes.length == 4) {
-                        String nombre = partes[0];
-                        String modelo = partes[1];
-                        double precio = Double.parseDouble(partes[2]);
-                        int anio = Integer.parseInt(partes[3]);
-
-                        lista.add(new Funko_C(nombre, modelo, precio, anio));
+                    if (partes.length == 5) {
+                        String cod = partes[0];
+                        String nombre = partes[1];
+                        String modelo = partes[2];
+                        double precio = Double.parseDouble(partes[3]);
+                        String anio = partes[4].split("-")[0];
+                        lista.add(new Funko_C(cod, nombre, modelo, precio, anio));
                     }
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException | NumberFormatException e) {
             System.out.println("Error al cargar los datos: " + e.getMessage());
         }
     }
@@ -189,7 +190,7 @@ public class MAIN_Funkos_CSV {
     public static void guardarFunkos(ArrayList<Funko_C> lista) {
         try (PrintWriter pw = new PrintWriter(new FileWriter("funkos.csv"))) {
             for (Funko_C f : lista) {
-                pw.println(f.getNombre() + "," + f.getModelo() + "," + f.getPrecio() + "," + f.getAnio());
+                pw.println(f.getCod() + "," + f.getNombre() + "," + f.getModelo() + "," + f.getPrecio() + "," + f.getAnio() + "-01-01");
             }
         } catch (IOException e) {
             System.out.println("Error al guardar los datos: " + e.getMessage());
