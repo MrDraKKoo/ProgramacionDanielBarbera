@@ -146,10 +146,10 @@ public class Repaso_SQL {
 
 //EJ12
             try {
-                PreparedStatement sentencia12 = con.prepareStatement(sentenciaSQL12);
-                int resultados12 = sentencia12.executeUpdate();
                 System.out.println("\nEJ 12");
 
+                PreparedStatement sentencia12 = con.prepareStatement(sentenciaSQL12);
+                int resultados12 = sentencia12.executeUpdate();
                 if (resultados12 > 0){
                     System.out.println("Persona insertada: Nymphadora Tonks");
                 }
@@ -173,10 +173,7 @@ public class Repaso_SQL {
             PreparedStatement sentencia14 = con.prepareStatement(sentenciaSQL14);
             int resultados14 = sentencia14.executeUpdate();
             System.out.println("\nEJ 14");
-
-            if (resultados14 > 0){
-                System.out.println("Estudiante eliminado: Tom Riddle");
-            }
+            System.out.println("Estudiante eliminado: Tom Riddle");
 
 //EJ15
             PreparedStatement sentencia15 = con.prepareStatement(sentenciaSQL15);
