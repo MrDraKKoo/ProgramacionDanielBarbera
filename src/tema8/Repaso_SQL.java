@@ -4,6 +4,13 @@ import java.sql.*;
 
 public class Repaso_SQL {
     public static void main(String[] args) {
+        String endpoint = "ad-postgres.cbt3zbtbmxet.us-east-1.rds.amazonaws.com";
+        String puerto = "5432";
+        String bd = "hogwarts";
+        String usuario = "postgres";
+        String contrasenya = "12345678";
+        String url = "jdbc:postgresql://" + endpoint + ":" + puerto + "/" + bd;
+
         String sentenciaSQL1 ="SELECT nombre, apellido FROM Profesor";
         String sentenciaSQL2 ="SELECT nombre, apellido FROM Estudiante where fecha_nacimiento > '1980-01-01'";
         String sentenciaSQL3 ="SELECT nombre, apellido FROM Estudiante order by fecha_nacimiento ASC";
@@ -22,12 +29,13 @@ public class Repaso_SQL {
         String sentenciaSQL16="SELECT Estudiante.nombre, Mascota.nombre_mascota, Asignatura.nombre_asignatura FROM Estudiante left join Mascota on Mascota.id_estudiante = Estudiante.id_estudiante inner join Estudiante_Asignatura on Estudiante_Asignatura.id_estudiante = Estudiante.id_estudiante inner join Asignatura on Estudiante_Asignatura.id_asignatura = Asignatura.id_asignatura";
         String sentenciaSQL17="SELECT Estudiante.nombre FROM Estudiante JOIN Estudiante_Asignatura ON Estudiante.id_estudiante = Estudiante_Asignatura.id_estudiante JOIN Asignatura ON Estudiante_Asignatura.id_asignatura = Asignatura.id_asignatura WHERE Asignatura.nombre_asignatura = 'Encantamientos' AND Estudiante_Asignatura.calificacion > (SELECT AVG(Estudiante_Asignatura.calificacion) FROM Estudiante_Asignatura JOIN Asignatura ON Estudiante_Asignatura.id_asignatura = Asignatura.id_asignatura WHERE Asignatura.nombre_asignatura = 'Encantamientos')";
         String sentenciaSQL18="SELECT Casa.nombre_casa FROM Casa JOIN Estudiante ON Casa.id_casa = Estudiante.id_casa JOIN Estudiante_Asignatura ON Estudiante.id_estudiante = Estudiante_Asignatura.id_estudiante GROUP BY Casa.nombre_casa HAVING AVG(Estudiante_Asignatura.calificacion) > 7";
-        try(Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/anavicianofabregat");
+
+        try(Connection con = DriverManager.getConnection(url, usuario, contrasenya);
 //EJ1
             PreparedStatement sentencia = con.prepareStatement(sentenciaSQL1)){
 
             ResultSet resultados = sentencia.executeQuery();
-
+            System.out.println("\nEJ 1");
             while(resultados.next()){
                 String nombre = resultados.getString("nombre");
                 String apellido = resultados.getString("apellido");
@@ -37,6 +45,7 @@ public class Repaso_SQL {
 //EJ2
             PreparedStatement sentencia2 = con.prepareStatement(sentenciaSQL2);
             ResultSet resultados2 = sentencia2.executeQuery();
+            System.out.println("\nEJ 2");
             while(resultados2.next()){
                 String nombre = resultados2.getString("nombre");
                 String apellido = resultados2.getString("apellido");
@@ -46,6 +55,7 @@ public class Repaso_SQL {
 //EJ3
             PreparedStatement sentencia3 = con.prepareStatement(sentenciaSQL3);
             ResultSet resultados3 = sentencia3.executeQuery();
+            System.out.println("\nEJ 3");
             while(resultados3.next()){
                 String nombre = resultados3.getString("nombre");
                 String apellido = resultados3.getString("apellido");
@@ -54,6 +64,8 @@ public class Repaso_SQL {
 //EJ4
             PreparedStatement sentencia4 = con.prepareStatement(sentenciaSQL4);
             ResultSet resultados4 = sentencia4.executeQuery();
+            System.out.println("\nEJ 4");
+
             while(resultados4.next()){
                 String nombreCasa = resultados4.getString("nombre_casa");
                 int num_estudiantes = resultados4.getInt("numero_estudiantes");
@@ -62,6 +74,8 @@ public class Repaso_SQL {
 //EJ5
             PreparedStatement sentencia5 = con.prepareStatement(sentenciaSQL5);
             ResultSet resultados5 = sentencia5.executeQuery();
+            System.out.println("\nEJ 5");
+
             while(resultados5.next()){
                 int media = resultados5.getInt("nota_media");
                 int max = resultados5.getInt("nota_maxima");
@@ -70,6 +84,8 @@ public class Repaso_SQL {
 //EJ6
             PreparedStatement sentencia6 = con.prepareStatement(sentenciaSQL6);
             ResultSet resultados6 = sentencia6.executeQuery();
+            System.out.println("\nEJ 6");
+
             while(resultados6.next()){
                 int anyo_curso = resultados6.getInt("anyo_curso");
 
@@ -78,6 +94,8 @@ public class Repaso_SQL {
 //EJ7
             PreparedStatement sentencia7 = con.prepareStatement(sentenciaSQL7);
             ResultSet resultados7 = sentencia7.executeQuery();
+            System.out.println("\nEJ 7");
+
             while(resultados7.next()){
                 String nombre = resultados7.getString("nombre");
                 System.out.println("Alumno: " + nombre );
@@ -85,6 +103,8 @@ public class Repaso_SQL {
 //EJ8
             PreparedStatement sentencia8 = con.prepareStatement(sentenciaSQL8);
             ResultSet resultados8 = sentencia8.executeQuery();
+            System.out.println("\nEJ 8");
+
             while(resultados8.next()){
                 String nombre = resultados8.getString("nombre");
                 String apellido = resultados8.getString("apellido");
@@ -94,6 +114,8 @@ public class Repaso_SQL {
 //EJ9
             PreparedStatement sentencia9 = con.prepareStatement(sentenciaSQL9);
             ResultSet resultados9 = sentencia9.executeQuery();
+            System.out.println("\nEJ 9");
+
             while(resultados9.next()){
                 String nombre = resultados9.getString("nombre");
                 String apellido = resultados9.getString("apellido");
@@ -103,6 +125,8 @@ public class Repaso_SQL {
 //EJ10
             PreparedStatement sentencia10 = con.prepareStatement(sentenciaSQL10);
             ResultSet resultados10 = sentencia10.executeQuery();
+            System.out.println("\nEJ 10");
+
             while(resultados10.next()){
                 String nombre = resultados10.getString("nombre");
                 String apellido = resultados10.getString("apellido");
@@ -112,6 +136,8 @@ public class Repaso_SQL {
 //EJ11
             PreparedStatement sentencia11 = con.prepareStatement(sentenciaSQL11);
             ResultSet resultados11 = sentencia11.executeQuery();
+            System.out.println("\nEJ 11");
+
             while(resultados11.next()){
                 String nombre = resultados11.getString("nombre");
 
@@ -119,21 +145,35 @@ public class Repaso_SQL {
             }
 
 //EJ12
-            PreparedStatement sentencia12 = con.prepareStatement(sentenciaSQL12);
-            int resultados12 = sentencia12.executeUpdate();
-            if (resultados12 > 0){
-                System.out.println("Persona insertada: Nymphadora Tonks");
+            try {
+                PreparedStatement sentencia12 = con.prepareStatement(sentenciaSQL12);
+                int resultados12 = sentencia12.executeUpdate();
+                System.out.println("\nEJ 12");
+
+                if (resultados12 > 0){
+                    System.out.println("Persona insertada: Nymphadora Tonks");
+                }
+            } catch (SQLException e) {
+                if (e.getSQLState().equals("23505")) { // Código 23505 = Registro duplicado
+                    System.out.println("Aviso: Nymphadora Tonks ya existe en la BD, saltando insert...");
+                } else {
+                    System.out.println("Error en insert: " + e.getMessage());
+                }
             }
 
 //EJ13
             PreparedStatement sentencia13 = con.prepareStatement(sentenciaSQL13);
             int resultados13 = sentencia13.executeUpdate();
+            System.out.println("\nEJ 13");
+
             if (resultados13 > 0){
                 System.out.println("Casa Hufflepuff actualizada correctamente.");
             }
 //EJ14
             PreparedStatement sentencia14 = con.prepareStatement(sentenciaSQL14);
             int resultados14 = sentencia14.executeUpdate();
+            System.out.println("\nEJ 14");
+
             if (resultados14 > 0){
                 System.out.println("Estudiante eliminado: Tom Riddle");
             }
@@ -141,6 +181,8 @@ public class Repaso_SQL {
 //EJ15
             PreparedStatement sentencia15 = con.prepareStatement(sentenciaSQL15);
             ResultSet resultados15 = sentencia15.executeQuery();
+            System.out.println("\nEJ 15");
+
             while(resultados15.next()){
                 String nombre = resultados15.getString("nombre");
                 String apellido = resultados15.getString("apellido");
@@ -151,6 +193,8 @@ public class Repaso_SQL {
 //EJ16
             PreparedStatement sentencia16 = con.prepareStatement(sentenciaSQL16);
             ResultSet resultados16 = sentencia16.executeQuery();
+            System.out.println("\nEJ 16");
+
             while(resultados16.next()){
                 String nombre = resultados16.getString("nombre");
                 String nombre_mascota = resultados16.getString("nombre_mascota");
@@ -161,6 +205,8 @@ public class Repaso_SQL {
 //EJ17
             PreparedStatement sentencia17 = con.prepareStatement(sentenciaSQL17);
             ResultSet resultados17 = sentencia17.executeQuery();
+            System.out.println("\nEJ 17");
+
             while(resultados17.next()){
                 String nombre = resultados17.getString("nombre");
                 System.out.println("Estudiante: " + nombre);
@@ -169,6 +215,8 @@ public class Repaso_SQL {
 //EJ18
             PreparedStatement sentencia18 = con.prepareStatement(sentenciaSQL18);
             ResultSet resultados18 = sentencia18.executeQuery();
+            System.out.println("\nEJ 18");
+
             while(resultados18.next()){
                 String nombre_casa = resultados18.getString("nombre_casa");
                 System.out.println("Nombre de la casa: " + nombre_casa);
