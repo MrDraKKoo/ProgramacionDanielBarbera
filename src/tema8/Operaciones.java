@@ -83,14 +83,21 @@ public class Operaciones {
             ex.printStackTrace();
         }
     }
-    public void nuevaAsignatura (){
-        String sentenciaSQL="INSERT INTO Asignatura (nombre, apellido, id_casa, anyo_curso, fecha_nacimiento) values ('Nymphadora', 'Tonks', 4, 7, '1973-11-25')";
-        try (Connection con = DriverManager.getConnection(url, usuario, contrasenya);
+    public void nuevaAsignatura (int id_asignatura, String nombre_asignatura, String aula, boolean obligatoria){
+        String sentenciaSQL = "INSERT INTO Asignatura (id_asignatura, nombre_asignatura, aula, obligatoria) VALUES ("+id_asignatura + ", '" + nombre_asignatura + "', '" + aula + "', " + obligatoria + ")";        try (Connection con = DriverManager.getConnection(url, usuario, contrasenya);
              PreparedStatement sentenciaSQL1 = con.prepareStatement(sentenciaSQL)){
         int resultados = sentenciaSQL1.executeUpdate();
-
+            if (resultados > 0){
+                System.out.println("Asignatura insterada con éxito");
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+    public void modificarAula(){
+
+    }
+    public void eliminarAsignatura(){
+
     }
 }
