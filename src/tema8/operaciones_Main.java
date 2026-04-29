@@ -89,8 +89,19 @@ public class operaciones_Main {
         operaciones.numEstudiantesPorCasa();
     }
     public static void nuevaAsignatura (){
+        Scanner in = new Scanner(System.in);
         Operaciones operaciones = new Operaciones();
-        operaciones.nuevaAsignatura();
+
+        System.out.println("Introduce la id para la nueva Asignatura:");
+        int id = in.nextInt();
+        in.nextLine();
+        System.out.println("Introduce el nombre de la Asignatura");
+        String nombre = in.nextLine();
+        System.out.println("Introuce el aula");
+        String aula = in.nextLine();
+        System.out.println("Introdue true en caso de que sea obligatorio, en caso de no serlo introduce false");
+        boolean obligatoria = in.nextBoolean();
+        operaciones.nuevaAsignatura(id,nombre, aula, obligatoria);
     }
     public static void modificarAula (){
 
