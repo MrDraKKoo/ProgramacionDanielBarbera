@@ -14,39 +14,39 @@ public class operaciones_Main {
             int opcion = in.nextInt();
             in.nextLine();
             switch (opcion){
-                case 0:
+                case 1:
                     listarAsignaturas();
                     break;
-                case 1:
+                case 2:
                     estudiantePorCasa();
                     break;
-                case 2:
+                case 3:
                     mascoteEstudiante();
                     break;
-                case 3:
+                case 4:
                     numeroEstudiantePorCasa();
                     break;
-                case 4:
+                case 5:
                     nuevaAsignatura();
                     break;
-                case 5:
+                case 6:
                     modificarAula();
                     break;
-                case 6:
+                case 7:
                     eliminarAsignatura();
                     break;
             }
         }
     }
     public static void menu(){
-        System.out.println("\n0. Listar todas las Asignaturas");
-        System.out.println("1. Consulta de estudiantes por casa");
-        System.out.println("2. Obtener la mascota de un estudiante específico");
-        System.out.println("3. Número de estudiantes por casa");
-        System.out.println("4. Insertar una nueva asignatura");
-        System.out.println("5. Modificar el aula de una asignatura");
-        System.out.println("6. Eliminar una asignatura");
-        System.out.println("Que quieres ver:");
+        System.out.println("\n1. Listar todas las Asignaturas");
+        System.out.println("2. Consulta de estudiantes por casa");
+        System.out.println("3. Obtener la mascota de un estudiante específico");
+        System.out.println("4. Número de estudiantes por casa");
+        System.out.println("5. Insertar una nueva asignatura");
+        System.out.println("6. Modificar el aula de una asignatura");
+        System.out.println("7. Eliminar una asignatura");
+        System.out.println("Que función quieres realizar?");
 
     }
     public static void listarAsignaturas() {
@@ -87,9 +87,12 @@ public class operaciones_Main {
         operaciones.nuevaAsignatura();
     }
     public static void modificarAula (){
-        System.out.println("Introduce el nombre para la nueva aula de la Asignatura añadida recientemente:");
+        System.out.println("Introduce el id para actualizar su aula:");
+        int id = in.nextInt();
+        in.nextLine();
+        System.out.println("Introduce el nombre para la nueva aula:");
         String nueva_aula = in.nextLine();
-        operaciones.modificarAula(nueva_aula);
+        operaciones.modificarAula(id,nueva_aula);
     }
     public static void eliminarAsignatura (){
         operaciones.eliminarAsignatura();
