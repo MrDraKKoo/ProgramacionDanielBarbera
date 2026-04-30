@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class operaciones_Main {
+    static Scanner in = new Scanner(System.in);
+    static Operaciones operaciones = new Operaciones();
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         boolean finalizar = false;
@@ -48,7 +50,6 @@ public class operaciones_Main {
 
     }
     public static void listarAsignaturas() {
-        Operaciones operaciones = new Operaciones();
         ArrayList<Asignatura> listaAsignatura = operaciones.listado();
 
         System.out.println("Listado de asignaturas:");
@@ -57,9 +58,6 @@ public class operaciones_Main {
         }
     }
     public static void estudiantePorCasa (){
-        Scanner in = new Scanner(System.in);
-        Operaciones operaciones = new Operaciones();
-
         System.out.print("¿De qué casa quieres ver los estudiantes? (ej: Gryffindor): ");
         String casa = in.nextLine();
 
@@ -76,8 +74,6 @@ public class operaciones_Main {
         }
     }
     public static void mascoteEstudiante (){
-        Scanner in = new Scanner(System.in);
-        Operaciones operaciones = new Operaciones();
         System.out.println("Introduce el nombre:");
         String nombre = in.nextLine();
         System.out.println("introduce el apellido:");
@@ -85,29 +81,18 @@ public class operaciones_Main {
         operaciones.mascotaEstudiante(nombre, apellido);
     }
     public static void numeroEstudiantePorCasa (){
-        Operaciones operaciones = new Operaciones();
         operaciones.numEstudiantesPorCasa();
     }
     public static void nuevaAsignatura (){
-        Scanner in = new Scanner(System.in);
-        Operaciones operaciones = new Operaciones();
-
-        System.out.println("Introduce la id para la nueva Asignatura:");
-        int id = in.nextInt();
-        in.nextLine();
-        System.out.println("Introduce el nombre de la Asignatura");
-        String nombre = in.nextLine();
-        System.out.println("Introuce el aula");
-        String aula = in.nextLine();
-        System.out.println("Introdue true en caso de que sea obligatorio, en caso de no serlo introduce false");
-        boolean obligatoria = in.nextBoolean();
-        operaciones.nuevaAsignatura(id,nombre, aula, obligatoria);
+        operaciones.nuevaAsignatura();
     }
     public static void modificarAula (){
-
+        System.out.println("Introduce el nombre para la nueva aula de la Asignatura añadida recientemente:");
+        String nueva_aula = in.nextLine();
+        operaciones.modificarAula(nueva_aula);
     }
     public static void eliminarAsignatura (){
-
+        operaciones.eliminarAsignatura();
     }
 }
 
