@@ -99,8 +99,8 @@ public class Operaciones {
             }
         }
     }
-    public void modificarAula (String nuevaAula){
-        String sentenciaSQL = "UPDATE Asignatura SET aula = '" + nuevaAula + "' WHERE id_asignatura = 222";
+    public void modificarAula (int id, String nuevaAula){
+        String sentenciaSQL = "UPDATE Asignatura SET aula = '" + nuevaAula + "' WHERE id_asignatura ="+id;
         try (Connection con = DriverManager.getConnection(url, usuario, contrasenya);
                                                                                                                                                                                                                          PreparedStatement sentenciaSQL1 = con.prepareStatement(sentenciaSQL)){
             int resultados = sentenciaSQL1.executeUpdate();
