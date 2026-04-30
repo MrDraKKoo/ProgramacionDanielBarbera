@@ -83,21 +83,44 @@ public class Operaciones {
             ex.printStackTrace();
         }
     }
-    public void nuevaAsignatura (int id_asignatura, String nombre_asignatura, String aula, boolean obligatoria){
-        String sentenciaSQL = "INSERT INTO Asignatura (id_asignatura, nombre_asignatura, aula, obligatoria) VALUES ("+id_asignatura + ", '" + nombre_asignatura + "', '" + aula + "', " + obligatoria + ")";        try (Connection con = DriverManager.getConnection(url, usuario, contrasenya);
+    public void nuevaAsignatura (){
+        String sentenciaSQL = "INSERT INTO Asignatura (id_asignatura, nombre_asignatura, aula, obligatoria) VALUES (222,'Biología','Laboratorio',false)";
+        try (Connection con = DriverManager.getConnection(url, usuario, contrasenya);
              PreparedStatement sentenciaSQL1 = con.prepareStatement(sentenciaSQL)){
         int resultados = sentenciaSQL1.executeUpdate();
             if (resultados > 0){
                 System.out.println("Asignatura insterada con éxito");
             }
+        } catch (SQLException e) {
+            if (e.getSQLState().equals("23505")) { // Código 23505 = Registro duplicado
+                System.out.println("Aviso: esa asignatura ya exise en la Base de datos");
+            } else {
+                System.out.println("Error en insert: " + e.getMessage());
+            }
+        }
+    }
+    public void modificarAula (String nuevaAula){
+        String sentenciaSQL = "UPDATE Asignatura SET aula = '" + nuevaAula + "' WHERE id_asignatura = 222";
+        try (Connection con = DriverManager.getConnection(url, usuario, contrasenya);
+                                                                                                                                                                                                                         PreparedStatement sentenciaSQL1 = con.prepareStatement(sentenciaSQL)){
+            int resultados = sentenciaSQL1.executeUpdate();
+            if (resultados > 0){
+                System.out.println("Asignatura actualizada con éxito");
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-    public void modificarAula(){
-
-    }
     public void eliminarAsignatura(){
-
+        String sentenciaSQL = "DELETE FROM Asignatura where id_asignatura = 222";
+        try (Connection con = DriverManager.getConnection(url, usuario, contrasenya);
+             PreparedStatement sentenciaSQL1 = con.prepareStatement(sentenciaSQL)){
+            int resultados = sentenciaSQL1.executeUpdate();
+            if (resultados > 0){
+                System.out.println("Asignatura borrada con éxito");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 }
