@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 public class Piloto_main {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-
+    static Scanner in = new Scanner(System.in);
+    static PilotsCRUD pilotsCRUD = new PilotsCRUD();
+    public static void main(String[] args) throws SQLException {
         int opcion = in.nextInt();
         boolean finalizar = false;
         while (!finalizar) {
@@ -17,25 +17,25 @@ public class Piloto_main {
             in.nextLine();
             switch (opcion) {
                 case 1:
-
+                    createPilot();
                     break;
                 case 2:
-
+                    readPilot();
                     break;
                 case 3:
-
+                    readPilot();
                     break;
                 case 4:
-
+                    updatePilot();
                     break;
                 case 5:
-
+                    deletePilot();
                     break;
                 case 6:
-
+                    showPilotClassification();
                     break;
                 case 7:
-
+                    showBuildersClassification();
                     break;
                 case 8:
                     System.out.println("Saliendo del prgrama");
@@ -55,4 +55,52 @@ public class Piloto_main {
         System.out.println("8) Salir");
         System.out.println("Que quieres realizar?");
     }
+    public static void createPilot () throws SQLException {
+        System.out.println("Introduce el ID del piloto");
+        int driverid = in.nextInt();
+        in.nextLine();
+        System.out.println("Introduce el code del pitloto");
+        String code= in.nextLine();
+        System.out.println("Introduce el nombre del piloto");
+        String forename= in.nextLine();
+        System.out.println("Introduce el surname del piloto");
+        String surname= in.nextLine();
+        System.out.println("Introduce el dob del piloto");
+        String dob= in.nextLine();
+        System.out.println("Introduce el nation name del piloto");
+        String nationally= in.nextLine();
+        System.out.println("Introduce el url del piloto");
+        String url = in.nextLine();
+        pilotsCRUD.añadirPiloto(driverid, code,forename, surname, dob, nationally, url);
+    }
+    public static void readPilot(){
+        System.out.println("Introduce el ID del piloto");
+        int driverid = in.nextInt();
+        in.nextLine();
+        pilotsCRUD.readPilot(driverid);
+    }
+    public static void readPilots(){
+        pilotsCRUD.readPilots();
+    }
+    public static void updatePilot(){
+        System.out.println("Introduce el ID del piloto");
+        int driverid = in.nextInt();
+        in.nextLine();
+        System.out.println("Introduce el nuevo nombre del piloto");
+        String forename= in.nextLine();
+        pilotsCRUD.updatePilot(driverid, forename);
+    }
+    public static void deletePilot(){
+        System.out.println("Introduce el ID del piloto");
+        int driverid = in.nextInt();
+        in.nextLine();
+        pilotsCRUD.deletePilot(driverid);
+    }
+    public static void showPilotClassification(){
+        pilotsCRUD.showPilotClassification();
+    }
+    public static void showBuildersClassification(){
+        pilotsCRUD.showBuildersClassification();
+    }
+
 }
